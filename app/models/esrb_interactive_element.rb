@@ -1,0 +1,2 @@
+class EsrbInteractiveElement < ApplicationRecord
+end
