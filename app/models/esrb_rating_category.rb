@@ -1,0 +1,2 @@
+class EsrbRatingCategory < ApplicationRecord
+end
