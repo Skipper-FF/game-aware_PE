@@ -1,0 +1,2 @@
+class EsrbContentDescriptor < ApplicationRecord
+end
