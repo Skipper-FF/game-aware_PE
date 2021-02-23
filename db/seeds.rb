@@ -20,15 +20,14 @@ EsrbInteractiveElement.destroy_all
 puts 'Database cleaned !'
 
 esrb_filepath = 'db/seeds/esrb.json'
-puts 'Opening JSON file...'
 esrb_file  = File.read(File.join(Rails.root,esrb_filepath))
 esrb = JSON.parse(esrb_file)
-puts 'JSON file loaded !'
 
 puts 'Adding rating categories...'
 esrb['rating_categories'].each do | rating_category |
   category = EsrbRatingCategory.new(
     name: rating_category['name'],
+    rating: rating_category['rating'],
     description: rating_category['description']
     )
   category.save!
@@ -54,4 +53,58 @@ esrb['interactive_elements'].each do | interactive_element |
   element.save!
 end
 puts 'Interactive elements added !'
+
+games_filepath = 'db/seeds/games.json'
+games_file = File.read(File.join(Rails.root,games_filepath))
+games = JSON.parse(games_file)
+
+puts 'Adding games...'
+games['games'].each do | game |
+  rating_category = EsrbRatingCategory.find_by(rating: game['rating_category'])
+  new_game = Game.new(
+    name: game['name'],
+    description: game['description'],
+    rating_summary: game['rating_summary'],
+    esrb_rating_category_id: rating_category.id
+    )
+  new_game.save!
+  game['content_descriptors'].each do | content_descriptor |
+    esrb_content_descriptor = EsrbContentDescriptor.find_by(name: content_descriptor)
+    unless esrb_content_descriptor.nil?
+      new_game_content_descriptor = GameContentDescriptor.new(
+      game_id: new_game.id,
+      esrb_content_descriptor_id: esrb_content_descriptor.id
+      )
+      new_game_content_descriptor.save!
+    end
+  end
+  game['interactive_elements'].each do | interactive_element |
+    esrb_interactive_element = EsrbInteractiveElement.find_by(name: interactive_element)
+    unless esrb_interactive_element.nil?
+      new_game_interactive_element = GameInteractiveElement.new(
+      game_id: new_game.id,
+      esrb_interactive_element_id: esrb_interactive_element.id
+      )
+      new_game_interactive_element.save!
+    end
+  end
+  puts "#{game['name']} added !"
+end
+puts 'All games added !'
+
+puts 'Seeding succesful'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
