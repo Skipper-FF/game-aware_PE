@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :user_reviews, only: [:index, :new, :edit, :update, :destroy]
   end
   resources :games, only: [:index, :show]
+  get 'dashboard', to: 'pages#dashboard'
 end
