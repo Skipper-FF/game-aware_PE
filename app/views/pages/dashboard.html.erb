@@ -4,7 +4,7 @@
   <% @user.kids.each do %>
     <%= @user.kid.name %>
     <%= @user.kid.birthdate - Date.now %>
-    <%= link_to("🖌 edit kid", edit_user_kid_path) %>
+    <%= link_to("🖌 edit kid", edit_user_kid_path(@user)) %>
   <% end %>
-  <%= link_to("+ Add a kid", new_user_kid_path) %>
+  <%= link_to("+ Add a kid", new_user_kid_path(@user)) %>
 </div>
