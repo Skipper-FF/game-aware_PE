@@ -9,8 +9,12 @@ class KidPolicy < ApplicationPolicy
   #   record.user == user
   # end
 
+  def new?
+    create?
+  end
+
   def create?
-    record.user == user
+    true
   end
 
   def edit?
