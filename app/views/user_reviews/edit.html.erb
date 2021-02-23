@@ -1,11 +1,9 @@
-<h1>This is the user_review page for a new review</h1>
+<h1>This is the user_review page for the edit</h1>
 <div class="container">
 <%= simple_form_for [@game, @user_review] do |f| %>
-<%= f.input :user_id %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :rating %>
   <%= f.submit %>
 <% end %>
 </div>
-
