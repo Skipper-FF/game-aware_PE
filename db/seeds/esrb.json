@@ -1,0 +1,182 @@
+{
+  "rating_categories": [
+    {
+      "name": "Rating Pending",
+      "rating": "RP",
+      "description": "Not yet assigned a final ESRB rating. Appears only in advertising, marketing and promotional materials related to a physical (e.g., boxed) video game that is expected to carry an ESRB rating, and should be replaced by a game's rarting once it has been assigned."
+    },
+    {
+      "name": "Everyone",
+      "rating": "E",
+      "description": "Content is generally suitable for all ages. May contain minimal cartoon, fantasy or mild violence and/or infrequent use of mild language."
+    },
+    {
+      "name": "Everyone 10+",
+      "rating": "E10+",
+      "description": "Content is generally suitable for ages 10 and up. May contain more cartoon, fantasy or mild violence, mild language and/or minimal suggestive themes."
+    },
+    {
+      "name": "Teen",
+      "rating": "T",
+      "description": "Content is generally suitable for ages 13 and up. May contain violence, suggestive themes, crude humor, minimal blood, simulated gambling and/or infrequent use of strong language."
+    },
+    {
+      "name": "Mature 17+",
+      "rating": "M",
+      "description": "Content is generally suitable for ages 17 and up. May contain intense violence, blood, and gore, sexual content and/or strong language."
+    },
+    {
+      "name": "Adults Only 18+",
+      "rating": "AO",
+      "description": "Content suitable only for adults ages 18 and up. May include prolonged scenes of intense violence, graphic sexual content and/or gambling with real currency."
+    }
+  ],
+  "content_descriptors": [
+    {
+      "name": "Alcohol Reference",
+      "description": "Reference to and/or images of alcoholic beverages"
+    },
+    {
+      "name": "Animated Blood",
+      "description": "Discolored and/or unrealistic depictions of blood"
+    },
+    {
+      "name": "Blood",
+      "description": "Depictions of blood"
+    },
+    {
+      "name": "Blood and Gore",
+      "description": "Depictions of blood or the mutilation of body parts"
+    },
+    {
+      "name": "Cartoon Violence",
+      "description": "Violent actions involving cartoon-like situations and characters. May include violence where a character is unharmed after the action has been inflicted"
+    },
+    {
+      "name": "Comic Mischief",
+      "description": "Depictions or dialogue involving slapstick or suggestive humor"
+    },
+    {
+      "name": "Crude Humor",
+      "description": "Depictions or dialogue involving vulgar antics, including \"bathroom\" humor"
+    },
+    {
+      "name": "Drug Reference",
+      "description": "Reference to and/or images of illegal drugs"
+    },
+    {
+      "name": "Fantasy Violence",
+      "description": "Violent actions of a fantasy nature, involving human or non-human characters in situations easily distinguishable from real life"
+    },
+    {
+      "name": "Intense Violence",
+      "description": "Graphic and realistic-looking depictions of physical conflict. May involve extreme and/or realistic blood, gore, weapons and depictions of human injury and death"
+    },
+    {
+      "name": "Language",
+      "description": "Mild to moderate use of profanity"
+    },
+    {
+      "name": "Lyrics",
+      "description": "Mild references to profanity, sexuality, violence, alcohol or drug use in music"
+    },
+    {
+      "name": "Mature Humor",
+      "description": "Depictions or dialogue involving \"adult\" humor, including sexual references"
+    },
+    {
+      "name": "Nudity",
+      "description": "Graphic or prolonged depictions of nudity"
+    },
+    {
+      "name": "Partial Nudity",
+      "description": "Brief and/or mild depictions of nudity"
+    },
+    {
+      "name": "Real Gambling",
+      "description": "Player can gamble, including betting or wagering real cash or currency"
+    },
+    {
+      "name": "Sexual Content",
+      "description": "Non-explicit depictions of sexual behavior, possibly including partial nudity"
+    },
+    {
+      "name": "Sexual Themes",
+      "description": "References to sex or sexuality"
+    },
+    {
+      "name": "Sexual Violence",
+      "description": "Depictions of rape or other violent sexual acts"
+    },
+    {
+      "name": "Simulated Gambling",
+      "description": "Player can gamble without betting or wagering real cash or currency"
+    },
+    {
+      "name": "Strong Language",
+      "description": "Explicit and/or frequent use of profanity"
+    },
+    {
+      "name": "Strong Lyrics",
+      "description": "Explicit and/or frequent references to profanity, sex, violence, alcohol or drug use in music"
+    },
+    {
+      "name": "Strong Sexual Content",
+      "description": "Explicit and/or frequent depictions of sexual behavior, possibly including nudity"
+    },
+    {
+      "name": "Suggestive Themes",
+      "description": "Mild provocative references or materials"
+    },
+    {
+      "name": "Tobacco Reference",
+      "description": "Reference to and/or images of tobacco products"
+    },
+    {
+      "name": "Use of Alcohol",
+      "description": "The consumption of alcoholic beverages"
+    },
+    {
+      "name": "Use of Drugs",
+      "description": "The consumption or use of illegal drugs"
+    },
+    {
+      "name": "Use of Tobacco",
+      "description": "The consumption of tobacco products"
+    },
+    {
+      "name": "Violence",
+      "description": "Scenes involving aggressive conflict. May contain bloodless dismemberment"
+    },
+    {
+      "name": "Violent References",
+      "description": "References to violent acts"
+    }
+  ],
+  "interactive_elements": [
+    {
+      "name": "In-Game Purchases",
+      "description": "Contains in-game offers to purchase digital goods or premiums with real world currency, including but not limited to bonus levels, skins, music, virtual coins and other forms of in-game currency, subscriptions, season passes and upgrades (e.g., to disable ads)."
+    },
+    {
+      "name": "In-Game Purchases (Includes Random Items)",
+      "description": "Contains in-game offers to purchase digital goods or premiums with real world currency (or with virtual coins or other forms of in-game currency that can be purchased with real world currency) for which the player doesn’t know prior to purchase the specific digital goods or premiums they will be receiving (e.g., loot boxes, item packs, mystery awards)."
+    },
+    {
+      "name": "Users Interact",
+      "description": "Indicates possible exposure to unfiltered/uncensored user-generated content, including user-to-user communications and media sharing via social media and networks"
+    },
+    {
+      "name": "Shares Location",
+      "description": "Includes the ability to display the user’s location to other users of the app"
+    },
+    {
+      "name": "Unrestricted Internet",
+      "description": "Provides unrestricted access to the internet (e.g., browser, search engine)"
+    },
+    {
+      "name": "Online Music Not Rated by the ESRB",
+      "description": "Warns that songs that are streamed or downloaded as add-ons for music-based games have not been rated and that their content has not been considered in the ESRB rating assignment."
+    }
+  ]
+}

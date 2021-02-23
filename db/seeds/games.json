@@ -1,0 +1,36 @@
+{
+  "games": [
+    {
+      "name": "Grand Theft Auto V",
+      "description": "The biggest, most dynamic and most diverse open world ever created, Grand Theft Auto V blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.",
+      "rating_summary": "In this open-world action game, players assume the role of three criminals whose storylines intersect within the fictional city of Los Santos. Players can switch between each character to follow his storyline, completing missions which often include criminal activities (e.g., stealing cars, executing heists, assassinating targets). Players use pistols, machine guns, sniper rifles, and explosives to kill various enemies (e.g., rival gang members); players also have the ability to shoot non-adversary civilians, though this may negatively affect players' progress as a penalty system triggers a broad police search. Blood-splatter effects occur frequently, and the game contains rare depictions of dismemberment. In one sequence, players are directed to use various instruments and means (e.g., pipe wrench, tooth removal, electrocution) to extract information from a character; the sequence is intense and prolonged, and it involves some player interaction (i.e., responding to on-screen prompts). The game includes depictions of sexual material/activity: implied fellatio and masturbation; various sex acts that the player's character procures from a prostitute—while no nudity is depicted in these sequences, various sexual moaning sounds can be heard. Nudity is present, however, primarily in two settings: a topless lap dance in a strip club and a location that includes male cult members with exposed genitalia in a non-sexual context. Within the game, TV programs and radio ads contain instances of mature humor: myriad sex jokes; depictions of raw sewage and feces on a worker's body; a brief instance of necrophilia (no nudity is depicted). Some sequences within the larger game allow players to use narcotics (e.g., smoking from a bong, lighting a marijuana joint); cocaine use is also depicted. Players' character can, at various times, consume alcohol and drive while under the influence. The words “f**k,” “c*nt,” and “n**ger” can be heard in the dialogue.",
+      "rating_category": "M",
+      "content_descriptors": ["Blood and Gore", "Intense Violence", "Mature Humor", "Nudity", "Strong Language", "Strong Sexual Content", "Use of Drugs", "Use of Alcohol"],
+      "interactive_elements": ["Online Interactions Not Rated by the ESRB"]
+    },
+    {
+      "name": "Super Mario 3D All-Stars",
+      "description": "Discover three of Mario’s grandest 3D adventures with Super Mario 3D All-Stars on Nintendo Switch! This special bundle includes Super Mario 64, Super Mario Sunshine and Super Mario Galaxy, all optimized for Nintendo Switch with updated HD graphics, Joy-Con controls, as well as a music player featuring the epic soundtracks from all three games!",
+      "rating_summary": "This is a collection of three classic 3D Mario platformers in which players travel to different areas to search for a missing princess. Players mostly run and jump across platforms and defeat cartoony enemies by jumping on their heads or bellies. Players can also throw whimsical projectiles (e.g., turtle shells, rocks, cartoony bombs) at enemies, and in one instance, use a high-powered water gun. In Super Mario Sunshine, players can pull the tentacles off a giant creature, resulting in twitching and wriggling effects.",
+      "rating_category": "E",
+      "content_descriptors": ["Mild Cartoon Violence"],
+      "interactive_elements": ["No Interactive Elements"]
+    },
+    {
+      "name": "Goat Simulator",
+      "description": "Goat Simulator is a third-person perspective game in which the player controls a goat. There does not appear to be any kind of storyline or plot. The player is free to explore the game's world as a goat, destroying things in the environment, running, jumping, and licking.",
+      "rating_summary": "This is a simulation game in which players cause as much damage as possible with a goat in an open-world environment. Players earn points by using the goat's abilities (e.g., ramming, jumping, running) to destroy objects and complete challenges/stunts. Several stunts depict acts of violence: characters getting hit by vehicles; players shooting people with baseballs, destroying a gas station, pushing humans off cranes. A handful of challenges involve knocking other goats out of a large blood-stained fighting circle. During the course of the game, players can engage in a text-based mini-game (i.e., “Drug Wars”) that involves the fictional buying and selling of drugs (e.g., crack, heroin, opium). The game also includes instances of crude humor (e.g., characters holding signs that read “No penis shaped foods.”). The words “f**k” and “sh*t” appear in the dialogue.",
+      "rating_category": "M",
+      "content_descriptors": ["Blood", "Crude Humor", "Drug Reference", "Strong Language", "Violence"],
+      "interactive_elements": ["No Interactive Elements"]
+    },
+    {
+      "name": "Fortnite",
+      "description": "Fortnite is the living, action building game from the developer formerly known as Epic MegaGames. You and your friends will lead a group of Heroes to reclaim and rebuild a homeland that has been left empty by mysterious darkness only known as \"the Storm\".",
+      "rating_summary": "This is an action game in which players build forts, gather resources, craft weapons, and battle hordes of monsters in frenetic combat. Players compete in two multiplayer game modes: Save the World and Battle Royale. From a third-person perspective, players use guns, swords, and grenades to fight skeleton-like monsters (husks) in ranged and melee-style combat. Players can also defeat enemies by using various traps (e.g., electric, spikes, poisonous gas). Battles are highlighted by frequent gunfire, explosions, and cries of pain. In Battle Royale mode, players compete in \"last-man-standing\"-style shootouts with other players on an island with diminishing borders.",
+      "rating_category": "T",
+      "content_descriptors": ["Violence"],
+      "interactive_elements": ["Users Interact", "In-Game Purchases"]
+    }
+  ]
+}
