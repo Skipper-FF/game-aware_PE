@@ -6,7 +6,7 @@ class KidsController < ApplicationController
   def new
     @kid = Kid.new
     authorize @kid
-    # @user = current_user
+    @user = current_user
   end
 
   def create
@@ -25,24 +25,34 @@ class KidsController < ApplicationController
   def edit
     @kid = Kid.find(params[:id])
     authorize @kid
+    @user = current_user
   end
 
   def update
     @kid = Kid.find(params[:id])
     authorize @kid
-    @kid.update(kid_params)
+    if @kid.update(kid_params)
+      flash[:notice] = 'Kid updated'
+      redirect_to dashboard_path
+    else
+      flash[:notice] = 'hmmm, an error has occured, please try again'
+    end
   end
 
   def destroy
-    @kid = kid.find(params[:id])
+    @kid = Kid.find(params[:id])
     authorize @kid
-    @kid.destroy
-    redirect_to dashboard_path
+    if @kid.destroy
+      flash[:notice] = 'Kid deleted'
+      redirect_to dashboard_path
+    else
+      flash[:notice] = 'hmmm, an error has occured, please try again'
+    end
   end
 
   private
 
   def kid_params
-    params.require(:kid).permit(:user_id, :name, :birthday)
+    params.require(:kid).permit(:user_id, :name, :birthdate)
   end
 end
