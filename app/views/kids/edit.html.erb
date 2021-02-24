@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for @kid do |f| %>
     <%= f.input :name %>
-    <%= f.input :birthdate, as: :date, html5: true%>
+    <%= f.input :birthdate, as: :date, html5: true, input_html: { min: '2000-01-01', max: Date.today.strftime("%Y-%m-%d") }%>
     <%= f.submit %>
   <% end %>
 </div>

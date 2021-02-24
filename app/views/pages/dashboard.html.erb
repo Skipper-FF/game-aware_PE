@@ -13,7 +13,8 @@
       <p>Username : <%= @user.username %></p>
       <p>Email : <%= @user.email %></p>
       <p> Member since : <%= @user.created_at.strftime("%d-%B-%Y") %> </p>
-      <p> Number of reviews : </p>
+
+      <p> Number of reviews : <%= @user.user_reviews.count %></p>
   </div>
 
   <div class="toggle-display" id="dash-tab2">
@@ -21,12 +22,16 @@
   <% @user.kids.each do |kid| %>
     <p> Name : <%= kid.name %> </p>
     <p> Age : <%= (Date.today - kid.birthdate).to_i/365 %></p>
-    <%= link_to("🖌 edit kid", edit_kid_path(kid)) %>
-    <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %> delete
+    <%= link_to edit_kid_path(kid) do  %>
+    <i class="far fa-edit"></i>
     <% end %>
+    <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
+    <i class="fas fa-user-times"></i>
+    <% end %>
+    <hr>
   <% end %>
+    <br>
+  <%= link_to("+ Add a kid", new_kid_path) %>
   </div>
 
-  <br>
-  <%= link_to("+ Add a kid", new_kid_path) %>
 </div>
