@@ -1,0 +1,18 @@
+<ul>
+    <% @game.user_reviews.each do |review| %>
+    <li>
+      <strong>Recommended age:</strong> <%= review.age %>
+      <strong>Title:</strong> <%= review.title%>
+      <strong>Description:</strong> <%= review.description %>
+      <strong><%= review.rating %>/5</strong>
+    </li>
+    <%= link_to edit_user_review_path(review) do  %>
+      <i class="far fa-edit"></i>
+    <% end %>
+    <%= link_to user_review_path(review), method: :delete, data: { confirm: "Delete review?" } do %>
+      <i class="fas fa-user-times"></i>
+    <% end %>
+  <% end %>
+</ul>
+
+
