@@ -31,15 +31,23 @@ class KidsController < ApplicationController
   def update
     @kid = Kid.find(params[:id])
     authorize @kid
-    @kid.update(kid_params)
-    redirect_to dashboard_path
+    if @kid.update(kid_params)
+      flash[:notice] = 'Kid updated'
+      redirect_to dashboard_path
+    else
+      flash[:notice] = 'hmmm, an error has occured, please try again'
+    end
   end
 
   def destroy
     @kid = Kid.find(params[:id])
     authorize @kid
-    @kid.destroy
-    redirect_to dashboard_path
+    if @kid.destroy
+      flash[:notice] = 'Kid deleted'
+      redirect_to dashboard_path
+    else
+      flash[:notice] = 'hmmm, an error has occured, please try again'
+    end
   end
 
   private
