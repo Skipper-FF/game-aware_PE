@@ -1,17 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# EsrbContentDescriptor      and     GameContentDescriptor
-# EsrbInteractiveElement     and     GameInteractiveElement
-# EsrbRatingCategory
-
-
+require 'faker'
 require 'json'
+
+# sets Faker with French values
+Faker::Config.locale = 'fr'
 
 puts 'Cleaning database...'
 EsrbRatingCategory.destroy_all
@@ -92,7 +83,52 @@ games['games'].each do | game |
 end
 puts 'All games added !'
 
-puts 'Seeding succesful'
+puts 'Adding users'
+5.times do
+  firstname = Faker::Name.first_name
+  username = firstname.parameterize + Faker::Number.decimal_part(digits: 2)
+  email = Faker::Internet.free_email(name: username.downcase)
+  user = User.new(
+    username: username,
+    email: email,
+    password: email
+    )
+  user.save!
+  puts "#{username} subscribed to Game-Aware"
+  [1, 2].sample.times do
+    name = Faker::Name.first_name
+    birthdate = Faker::Date.birthday(min_age: 3, max_age: 17)
+    kid = Kid.new(
+      name: name,
+      birthdate: birthdate,
+      user_id: user.id
+      )
+    kid.save!
+    puts "and wants the best for #{name} !"
+  end
+end
+
+puts 'Adding reviews'
+20.times do
+  user_id = User.find(User.pluck(:id).sample).id
+  game_id = Game.find(Game.pluck(:id).sample).id
+  age = rand(3..17)
+  title = Faker::Lorem.sentence(word_count: 2)
+  description = Faker::Lorem.paragraph(sentence_count: 3)
+  rating = rand(1..5)
+  review = UserReview.new(
+    user_id: user_id,
+    game_id: game_id,
+    age: age,
+    title: title,
+    description: description,
+    rating: rating
+    )
+  review.save!
+  puts "User #{user_id} left a review for game #{game_id}"
+end
+
+puts 'Seeding successful'
 
 
 

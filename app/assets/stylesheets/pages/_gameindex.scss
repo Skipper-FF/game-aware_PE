@@ -1,0 +1,38 @@
+.index-card-game {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(244,240,235,1);
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  background-color: white;
+  border: 1px solid $orangechaud;
+  border-radius: 16px;
+}
+
+.index-card-game img {
+  height: 100%;
+  width: 140px;
+  object-fit: cover;
+}
+
+.index-card-game h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.index-card-game p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+
+.index-card-game .index-card-game-infos {
+  padding: 12px;
+  color: gray;
+}
