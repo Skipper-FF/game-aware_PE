@@ -1,10 +1,31 @@
 <div class="container">
   <h1>This is the dashboard</h1>
+    <ul class="list-inline tabs-underlined">
+    <li>
+      <a href="#" class="tab-underlined active" id="btn-profile">Your Profile</a>
+     </li>
+     <li>
+       <a href="#" class="tab-underlined" id="btn-kids">Your Kids </a>
+    </li>
+  </ul>
+  <div id="dash-tab1">
+    <h2>Your Profile</h2>
+      <p>Username : <%= @user.username %></p>
+      <p>Email : <%= @user.email %></p>
+      <p> Member since : <%= @user.created_at.strftime("%d-%B-%Y") %> </p>
+      <p> Number of reviews : </p>
+  </div>
 
-  <% @user.kids.each do %>
-    <%= @user.kid.name %>
-    <%= @user.kid.birthdate - Date.now %>
-    <%= link_to("🖌 edit kid", edit_user_kid_path(@user)) %>
+  <div class="toggle-display" id="dash-tab2">
+  <h2> Your Kids </h2>
+  <% @user.kids.each do |kid| %>
+    <p> Name : <%= kid.name %> </p>
+    <p> Age : <%= (Date.today - kid.birthdate).to_i/365 %></p>
+    <%= link_to("🖌 edit kid", edit_kid_path(kid)) %>
   <% end %>
-  <%= link_to("+ Add a kid", new_user_kid_path(@user)) %>
+  </div>
+
+  <br>
+  <%= link_to("+ Add a kid", new_kid_path) %>
 </div>
+<%= console %>
