@@ -6,7 +6,7 @@ class KidsController < ApplicationController
   def new
     @kid = Kid.new
     authorize @kid
-    # @user = current_user
+    @user = current_user
   end
 
   def create
@@ -25,6 +25,7 @@ class KidsController < ApplicationController
   def edit
     @kid = Kid.find(params[:id])
     authorize @kid
+    @user = current_user
   end
 
   def update
@@ -43,6 +44,6 @@ class KidsController < ApplicationController
   private
 
   def kid_params
-    params.require(:kid).permit(:user_id, :name, :birthday)
+    params.require(:kid).permit(:user_id, :name, :birthdate)
   end
 end

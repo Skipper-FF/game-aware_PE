@@ -1,1 +1,4 @@
-<h1>kids index</h1>
+<% @kid.each do |kid| %>
+<p> <%= kid.name %> </p>
+<p> <%= kid.birthdate %> </p>
+<% end %>
