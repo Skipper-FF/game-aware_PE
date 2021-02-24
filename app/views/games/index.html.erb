@@ -1,5 +1,16 @@
-<h1> This is an awesome index</h1>
-
+<div class="container">
+<h1> Résultats</h1>
+<p>Font test</p>
+<%= link_to 'Home 🏠', root_path %>
 <% @game.each do |game| %>
-<%= game.name %>
+  <%= link_to game_path(game) do %>
+    <div class="index-card-game">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="index-card-game-infos">
+       <h2> <%= game.name %> </h2>
+       <p> <%= game.description.truncate_words(14) %></p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
+</div>
