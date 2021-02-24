@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for [@user, @kid] do |f| %>
+  <%= simple_form_for @kid do |f| %>
     <%= f.input :name %>
     <%= f.input :birthdate, as: :date, html5: true%>
     <%= f.submit %>

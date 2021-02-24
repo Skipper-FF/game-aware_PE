@@ -22,6 +22,8 @@
     <p> Name : <%= kid.name %> </p>
     <p> Age : <%= (Date.today - kid.birthdate).to_i/365 %></p>
     <%= link_to("🖌 edit kid", edit_kid_path(kid)) %>
+    <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %> delete
+    <% end %>
   <% end %>
   </div>
 
