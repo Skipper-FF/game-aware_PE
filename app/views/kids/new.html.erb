@@ -1,1 +1,8 @@
-<h1>Kid's new page</h1>
+<div class="container">
+  <%= simple_form_for @kid do |f| %>
+    <%= f.input :name %>
+    <%= f.input :birthdate, as: :date, html5: true, input_html: { min: '2000-01-01', max: '2020-03-05' }%>
+    <%= f.submit %>
+  <% end %>
+</div>
+
