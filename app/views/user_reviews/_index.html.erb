@@ -6,10 +6,10 @@
       <strong>Description:</strong> <%= review.description %>
       <strong><%= review.rating %>/5</strong>
     </li>
-    <%= link_to edit_user_review_path(user_review) do  %>
+    <%= link_to edit_user_review_path(review) do  %>
       <i class="far fa-edit"></i>
     <% end %>
-    <%= link_to game_user_reviews_path, method: :delete, data: { confirm: "Delete #{game.user_review}?" } do %>
+    <%= link_to user_review_path(review), method: :delete, data: { confirm: "Delete review?" } do %>
       <i class="fas fa-user-times"></i>
     <% end %>
   <% end %>
