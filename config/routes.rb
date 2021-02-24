@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :kids
   end
   resources :games, only: [:index, :show] do
-    resources :user_reviews
+    resources :user_reviews, only: [:new, :create]
   end
+  resources :user_reviews, only:[:edit, :update, :destroy]
   get 'dashboard', to: 'pages#dashboard'
 end
