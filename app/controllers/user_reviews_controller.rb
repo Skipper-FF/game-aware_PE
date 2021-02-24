@@ -1,21 +1,21 @@
 class UserReviewsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
+    @game = Game.find(params[:game_id])
     @user_review = UserReview.new
     authorize @user_review
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @game = Game.find(params[:game_id])
     @user_review = UserReview.new(user_reviews_params)
     authorize @user_review
-    @user_review.user = @user
     @user_review.user = current_user
+    @user_review.game = @game
     if @user_review.save
-      # flash[:notice] = 'Votre commentaire a bien été ajouté!'
-      redirect_to game_path
+      flash[:notice] = 'Votre commentaire a bien été ajouté!'
+      redirect_to game_path(@game)
     else
-      # flash[:notice] = 'Il y a une erreur, veuillez réessayer'
+      flash[:notice] = 'Il y a une erreur, veuillez réessayer'
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UserReviewsController < ApplicationController
     set_user_review
     authorize @user_review
     @user_review.update(user_reviews_params)
-    redirect_to game_path(@user_review)
+    redirect_to game_user_review_path
   end
 
   def destroy
@@ -37,7 +37,7 @@ class UserReviewsController < ApplicationController
     authorize @user_review
     @user_review.destroy
     # flash[:notice] = 'Votre commentaire a bien été supprimé!'
-    redirect_to game_path
+    redirect_to game_user_review_path
   end
 
   private
@@ -47,6 +47,6 @@ class UserReviewsController < ApplicationController
   end
 
   def user_reviews_params
-    params.require(:user_reviews).permit(:age, :title, :description, :rating, :user_id, :game_id)
+    params.require(:user_review).permit(:age, :title, :description, :rating, :user_id, :game_id)
   end
 end
