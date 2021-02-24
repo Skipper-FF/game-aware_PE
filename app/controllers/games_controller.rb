@@ -7,5 +7,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @rating_category = EsrbRatingCategory.find(@game.esrb_rating_category_id)
+    authorize @game
   end
 end
