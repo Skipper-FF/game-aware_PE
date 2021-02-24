@@ -17,7 +17,7 @@
 <hr>
 
 <h4>Rating category</h4>
-<p><%= @rating_category.rating %></p>
+<%= image_tag "esrb/#{@rating_category.rating}.svg", height: '128' %>
 <details>
   <summary>Show details</summary>
   <p><%= @rating_category.name %></p>
