@@ -1,0 +1,50 @@
+<h1><%= @game.name %></h1>
+
+<hr>
+
+<h2>Description</h2>
+<p><%= @game.description %></p>
+
+<hr>
+
+<h3>Rating summary</h3>
+ <details>
+  <summary>Show summary</summary>
+  <p><%= @game.rating_summary %></p>
+</details>
+
+<hr>
+
+<h4>Rating category</h4>
+<p><%= @rating_category.rating %></p>
+<details>
+  <summary>Show details</summary>
+  <p><%= @rating_category.name %></p>
+  <p><%= @rating_category.description %></p>
+</details>
+
+<hr>
+
+<h5>Content descriptors</h5>
+<details>
+  <summary>Show descriptors</summary>
+  <ul>
+    <% @game.esrb_content_descriptors.each do |descriptor| %>
+      <li><%= descriptor.name %></li>
+    <% end %>
+  </ul>
+</details>
+
+<hr>
+
+<h5>Interactive elements</h5>
+<details>
+  <summary>Show elements</summary>
+  <ul>
+    <% @game.esrb_interactive_elements.each do |element| %>
+      <li><%= element.name %></li>
+    <% end %>
+  </ul>
+</details>
+
+<hr>
