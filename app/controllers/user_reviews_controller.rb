@@ -1,15 +1,15 @@
 class UserReviewsController < ApplicationController
   def new
+    @user = User.find(params[:user_id])
     @user_review = UserReview.new
     authorize @user_review
-    @game = Game.find(params[:game_id])
   end
 
   def create
+    @user = User.find(params[:user_id])
     @user_review = UserReview.new(user_reviews_params)
     authorize @user_review
-    @game = Game.find(params[:game_id])
-    @user_review.game = @game
+    @user_review.user = @user
     @user_review.user = current_user
     if @user_review.save
       # flash[:notice] = 'Votre commentaire a bien été ajouté!'
