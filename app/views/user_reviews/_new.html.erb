@@ -1,5 +1,3 @@
-<h1>This is the user_review page for a new review</h1>
-<div class="container">
 <%= simple_form_for [@game, @user_review] do |f| %>
   <%= f.input :age, collection: 0..18 %>
   <%= f.input :title %>
@@ -7,5 +5,5 @@
   <%= f.input :rating, collection: 0..5 %>
   <%= f.submit'Post your comment', class: "btn btn-primary" %>
 <% end %>
-</div>
+
 

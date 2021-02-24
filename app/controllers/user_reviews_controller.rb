@@ -1,4 +1,8 @@
 class UserReviewsController < ApplicationController
+  def index
+    @game = Game.find(params[:game_id])
+    @user_reviews = UserReview.all
+  end
   def new
     @game = Game.find(params[:game_id])
     @user_review = UserReview.new
@@ -32,7 +36,7 @@ class UserReviewsController < ApplicationController
     authorize @user_review
     @user_review.update(user_reviews_params)
     flash[:notice] = 'Votre commentaire a bien été modifié!'
-    redirect_to game_path(@game)
+    redirect_to edit_user_review_path(user_review)
   end
 
   def destroy
@@ -40,7 +44,7 @@ class UserReviewsController < ApplicationController
     authorize @user_review
     @user_review.destroy
     # flash[:notice] = 'Votre commentaire a bien été supprimé!'
-    redirect_to game_user_review_path
+    redirect_to game_user_review_path(game_id)
   end
 
   private
