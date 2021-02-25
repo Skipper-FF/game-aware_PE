@@ -22,10 +22,16 @@ class UserReviewPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    true if owner?
   end
 
   def destroy?
-    true
+    true if owner?
+  end
+
+private
+
+  def owner?
+    record.user == user
   end
 end

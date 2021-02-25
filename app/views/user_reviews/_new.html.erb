@@ -1,9 +1,43 @@
-<%= simple_form_for [@game, @user_review] do |f| %>
-  <%= f.input :age, collection: 0..18 %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :rating, collection: 0..5 %>
-  <%= f.submit'Post your comment', class: "btn btn-primary" %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    #panel, .flip {
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      background-color: #ff7334;
+      color: white;
+      border: solid 1px #ff7334;
+      margin: auto;
+      border-radius: 5px;
+    }
+
+    #panel {
+      display: none;
+    }
+    </style>
+  </head>
+<body>
+  <div class="container">
+    <p class="flip" onclick="myFunction()">Add a comment</p>
+    <div id="panel">
+      <%= simple_form_for [@game, @user_review] do |f| %>
+      <%= f.input :age, collection: 0..18 %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.submit'Post your comment', class: "btn btn-success" %>
+    <% end %>
+    </div>
+  </div>
+  <script>
+  function myFunction() {
+    document.getElementById("panel").style.display = "block";
+  }
+  </script>
+
+  </body>
+</html>
 
 

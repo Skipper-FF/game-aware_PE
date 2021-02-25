@@ -14,10 +14,10 @@ class KidsController < ApplicationController
     authorize @kid
     @kid.user = current_user
     if @kid.save
-      flash[:notice] = 'Votre enfant a bien été ajouté'
+      flash[:notice] = 'The kid profile has been added'
       redirect_to dashboard_path
     else
-      flash[:notice] = 'Il y a eu une erreur, veuillez réessayer'
+      flash[:notice] = 'An error has occured, please try again.'
       render :new
     end
   end
@@ -32,10 +32,10 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     authorize @kid
     if @kid.update(kid_params)
-      flash[:notice] = 'Kid updated'
+      flash[:notice] = 'The kid profile has been edited'
       redirect_to dashboard_path
     else
-      flash[:notice] = 'hmmm, an error has occured, please try again'
+      flash[:notice] = 'An error has occured, please try again.'
     end
   end
 
@@ -43,10 +43,10 @@ class KidsController < ApplicationController
     @kid = Kid.find(params[:id])
     authorize @kid
     if @kid.destroy
-      flash[:notice] = 'Kid deleted'
+      flash[:notice] = 'The kid profile has been edited'
       redirect_to dashboard_path
     else
-      flash[:notice] = 'hmmm, an error has occured, please try again'
+      flash[:notice] = 'An error has occured, please try again.'
     end
   end
 
