@@ -40,16 +40,27 @@
     <% if @user %>
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
-          <p> <%= kid.name %>
-          Age : <%= kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
-          <% if kid_age >= game_aware_rating %>
-            👍
-            <% elsif (kid_age) < (game_aware_rating - 1)%>
-            👎
-            <% else %>
-            😐
+        <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
+          <div class="kid
+          <%if (kid_age) < (game_aware_rating - 1) %>
+              <%= 'redbg' %>
+          <% elsif kid_age >= game_aware_rating %>  %>
+              <%= 'greenbg' %>
+          <% else %>
+              <%= 'orangebg' %>
           <% end %>
-        </p>
+          ">
+            <p> <%= kid.name %>
+            Age : <%= kid_age %>
+            <% if kid_age >= game_aware_rating %>
+              👍
+              <% elsif (kid_age) < (game_aware_rating - 1)%>
+              👎
+              <% else %>
+              😐
+            <% end %>
+          </p>
+        </div>
         <% end %>
       <% else %>
         <%= link_to("+ Add a kid", new_kid_path) %>
