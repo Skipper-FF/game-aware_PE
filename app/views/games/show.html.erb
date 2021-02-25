@@ -1,56 +1,112 @@
 <div class="container">
-<h1><%= @game.name %></h1>
-
-<hr>
-
-<h2>Description</h2>
-<p><%= @game.description %></p>
-
-<hr>
-
-<h3>Rating summary</h3>
- <details>
-  <summary>Show summary</summary>
-  <p><%= @game.rating_summary %></p>
-</details>
-
-<hr>
-
-<h4>Rating category</h4>
-<%= image_tag "esrb/#{@rating_category.rating}.svg", height: '128' %>
-<details>
-  <summary>Show details</summary>
-  <p><%= @rating_category.name %></p>
-  <p><%= @rating_category.description %></p>
-</details>
-
-<hr>
-
-<h5>Content descriptors</h5>
-<details>
-  <summary>Show descriptors</summary>
-  <ul>
-    <% @game.esrb_content_descriptors.each do |descriptor| %>
-      <li><%= descriptor.name %></li>
+  <h1><%= @game.name %></h1>
+  <div class="rating-block">
+    <h3> Recommended age ratings </h3>
+    <div class="esrb-rating">
+      <% if @rating_category.name == "Mature 17+"%>
+         esrb reco : <%= esrb_age = 17 %>
+         <% elsif @rating_category.name == "Everyone"%>
+         esrb reco : <%= esrb_age = 3 %>
+         <% elsif @rating_category.name == "Rating Pending"%>
+         esrb reco : <%= esrb_age = "N/C" %>
+         <% elsif @rating_category.name == "Everyone 10+"%>
+         esrb reco : <%= esrb_age = 10 %>
+         <% elsif @rating_category.name == "Adults Only 18+"%>
+         esrb reco : <%= esrb_age = 18 %>
+         <% elsif @rating_category.name == "Teen"%>
+         esrb reco : <%= esrb_age = 13 %>
+         <% else %>
+         esrb reco : <%= esrb_age == "N/C" %>
+      <% end %>
+    </div>
+    <div class="parents-rating">
+      <% if @game.user_reviews.count > 0 %>
+        <% sum = 0 %>
+        <% @game.user_reviews.each do |review| %>
+        <% sum += review.age %>
+        <% end %>
+        <p> Avg Parent rating : <%= average_p_rating = sum / @game.user_reviews.count %>
+        <br> Based on : <br> <%= @game.user_reviews.count %> parent reviews
+        <% else %>
+        <p> no parents reviews </p>
+      <% end %>
+    <div class="game-aware-rating">
+      Game-Aware rating : <%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %>
+    </div>
+    </div>
+  </div>
+  <hr>
+  <div class="kids-recommandation">
+    <% if @user %>
+      <% if @user.kids.count > 0 %>
+        <% @user.kids.each do |kid| %>
+          <p> <%= kid.name %>
+          Age : <%= kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
+          <% if kid_age >= game_aware_rating %>
+            👍
+            <% elsif (kid_age) < (game_aware_rating - 1)%>
+            👎
+            <% else %>
+            😐
+          <% end %>
+        </p>
+        <% end %>
+      <% else %>
+        <%= link_to("+ Add a kid", new_kid_path) %>
+      <% end %>
     <% end %>
-  </ul>
-</details>
+    <hr>
+  </div>
 
-<hr>
 
-<h5>Interactive elements</h5>
-<details>
-  <summary>Show elements</summary>
-  <ul>
-    <% @game.esrb_interactive_elements.each do |element| %>
-      <li><%= element.name %></li>
-    <% end %>
-  </ul>
-</details>
-<hr>
+  <h2>Description</h2>
+  <p><%= @game.description %></p>
 
-<h3>Game comments</h3>
-  <%= render "user_reviews/index", user_review: @user_review %>
-<hr>
-<%= render ("user_reviews/new"), user_review: @user_review %>
+  <hr>
+
+  <h3>Rating summary</h3>
+   <details>
+    <summary>Show summary</summary>
+    <p><%= @game.rating_summary %></p>
+  </details>
+
+  <hr>
+
+  <h4>Rating category</h4>
+  <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '128' %>
+  <details>
+    <summary>Show details</summary>
+    <p><%= @rating_category.name %></p>
+    <p><%= @rating_category.description %></p>
+  </details>
+
+  <hr>
+
+  <h5>Content descriptors</h5>
+  <details>
+    <summary>Show descriptors</summary>
+    <ul>
+      <% @game.esrb_content_descriptors.each do |descriptor| %>
+        <li><%= descriptor.name %></li>
+      <% end %>
+    </ul>
+  </details>
+
+  <hr>
+
+  <h5>Interactive elements</h5>
+  <details>
+    <summary>Show elements</summary>
+    <ul>
+      <% @game.esrb_interactive_elements.each do |element| %>
+        <li><%= element.name %></li>
+      <% end %>
+    </ul>
+  </details>
+  <hr>
+
+  <h3>Game comments</h3>
+    <%= render "user_reviews/index", user_review: @user_review %>
+  <hr>
+  <%= render ("user_reviews/new"), user_review: @user_review %>
 </div>
