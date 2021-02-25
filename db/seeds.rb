@@ -16,6 +16,7 @@ EsrbRatingCategory.destroy_all
 EsrbContentDescriptor.destroy_all
 EsrbInteractiveElement.destroy_all
 puts 'Database cleaned !'
+puts''
 
 esrb_filepath = 'db/seeds/esrb.json'
 esrb_file  = File.read(File.join(Rails.root,esrb_filepath))
