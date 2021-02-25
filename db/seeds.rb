@@ -63,7 +63,6 @@ games['games'].each do | game |
   cover_file = URI.open(game['cover'])
   cover_filename = cover_file.base_uri.to_s.split('/')[-1]
   new_game.photo.attach(io: cover_file, filename: cover_filename, content_type: cover_file.content_type)
-  puts new_game.photo.attached?
   game['content_descriptors'].each do | content_descriptor |
     esrb_content_descriptor = EsrbContentDescriptor.find_by(name: content_descriptor)
     unless esrb_content_descriptor.nil?
@@ -88,7 +87,7 @@ games['games'].each do | game |
 end
 puts 'All games added !'
 
-puts 'Adding users'
+puts 'Adding users...'
 5.times do
   firstname = Faker::Name.first_name
   username = firstname.parameterize + Faker::Number.decimal_part(digits: 3)
