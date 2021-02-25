@@ -5,7 +5,7 @@
 <% @game.each do |game| %>
   <%= link_to game_path(game) do %>
     <div class="index-card-game">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag game.photo.key %>
       <div class="index-card-game-infos">
        <h2> <%= game.name %> </h2>
        <p> <%= game.description.truncate_words(14) %></p>
