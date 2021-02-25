@@ -8,31 +8,31 @@
   align-items: center;
   margin-top: 16px;
   background-color: white;
-  border: 1px solid $orangechaud;
+  border: 1px solid #FF7130;
   border-radius: 16px;
-}
 
-.index-card-game img {
-  height: 100%;
-  width: 140px;
-  object-fit: cover;
-}
+   img {
+    height: 100%;
+    width: 140px;
+    object-fit: cover;
+   }
 
-.index-card-game h2 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-}
+   h2 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+   }
 
-.index-card-game p {
-  font-size: 14px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 4px;
-}
+   p {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 4px;
+   }
 
-.index-card-game .index-card-game-infos {
-  padding: 12px;
-  color: gray;
+   .index-card-game-infos {
+    padding: 12px;
+    color: gray;
+   }
 }
