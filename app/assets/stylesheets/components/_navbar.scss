@@ -6,6 +6,7 @@
   position: fixed;
   width: 100%;
   bottom:  0;
+  background-color: #FF7130;
 
   .navbar-collapse {
   text-align: right;
@@ -20,18 +21,11 @@
 #navbar-button {
 border-style: none;
 background-color: transparent;
-}
-
-.navbar-lewagon {
-  background-color: #FF7130;
+color: white;
+font-size: 28px;
 }
 
 #navbar-icons {
   color: white;
   font-size: 26px;
-}
-
-#navbar-button {
-  color: white;
-  font-size: 28px;
 }
