@@ -6,6 +6,12 @@ require "open-uri"
 Faker::Config.locale = 'fr'
 
 puts 'Cleaning database...'
+UserReview.destroy_all
+Kid.destroy_all
+User.destroy_all
+GameInteractiveElement.destroy_all
+GameContentDescriptor.destroy_all
+Game.destroy_all
 EsrbRatingCategory.destroy_all
 EsrbContentDescriptor.destroy_all
 EsrbInteractiveElement.destroy_all
