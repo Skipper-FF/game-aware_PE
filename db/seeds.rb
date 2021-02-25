@@ -1,5 +1,6 @@
 require 'faker'
 require 'json'
+require "open-uri"
 
 # sets Faker with French values
 Faker::Config.locale = 'fr'
@@ -59,6 +60,9 @@ games['games'].each do | game |
     esrb_rating_category_id: rating_category.id
     )
   new_game.save!
+  cover_file = URI.open(game['cover'])
+  cover_filename = cover_file.base_uri.to_s.split('/')[-1]
+  new_game.photo.attach(io: cover_file, filename: cover_filename, content_type: cover_file.content_type)
   game['content_descriptors'].each do | content_descriptor |
     esrb_content_descriptor = EsrbContentDescriptor.find_by(name: content_descriptor)
     unless esrb_content_descriptor.nil?
@@ -83,10 +87,10 @@ games['games'].each do | game |
 end
 puts 'All games added !'
 
-puts 'Adding users'
+puts 'Adding users...'
 5.times do
   firstname = Faker::Name.first_name
-  username = firstname.parameterize + Faker::Number.decimal_part(digits: 2)
+  username = firstname.parameterize + Faker::Number.decimal_part(digits: 3)
   email = Faker::Internet.free_email(name: username.downcase)
   user = User.new(
     username: username,
@@ -104,7 +108,7 @@ puts 'Adding users'
       user_id: user.id
       )
     kid.save!
-    puts "and wants the best for #{name} !"
+    puts "and wants the best games for #{name} !"
   end
 end
 
@@ -125,7 +129,7 @@ puts 'Adding reviews'
     rating: rating
     )
   review.save!
-  puts "User #{user_id} left a review for game #{game_id}"
+  puts "#{user_id} left a review for game #{game_id}"
 end
 
 puts 'Seeding successful'
