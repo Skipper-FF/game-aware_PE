@@ -16,10 +16,10 @@ class UserReviewsController < ApplicationController
     @user_review.user = current_user
     @user_review.game = @game
     if @user_review.save
-      flash[:notice] = 'Votre commentaire a bien été ajouté!'
+      flash[:notice] = 'Your review has been added'
       redirect_to game_path(@game)
     else
-      flash[:notice] = 'Il y a une erreur, veuillez réessayer'
+      flash[:notice] = 'An error has occured, please try again.'
       render :new
     end
   end
@@ -33,7 +33,7 @@ class UserReviewsController < ApplicationController
     set_user_review
     authorize @user_review
     @user_review.update(user_reviews_params)
-    flash[:notice] = 'Votre commentaire a bien été modifié!'
+    flash[:notice] = 'Your review has been edited'
     redirect_to game_path(@user_review.game)
   end
 
@@ -41,7 +41,7 @@ class UserReviewsController < ApplicationController
     set_user_review
     authorize @user_review
     @user_review.destroy
-    # flash[:notice] = 'Votre commentaire a bien été supprimé!'
+    flash[:notice] = 'Your review has been removed!'
     redirect_to game_path(@user_review.game)
   end
 
