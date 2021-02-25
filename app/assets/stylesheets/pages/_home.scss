@@ -1,10 +1,18 @@
 // Specific CSS for your home-page
 .banner-img {
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  height: 150px;
+  width: 100%;
+  filter: grayscale(1);
 }
-.banner-text h5 {
-  color: white
+
+.search-homepage {
+  margin-top: -20px;
+}
+
+.main-text {
+  text-align: center;
+  font-size: 15px;
 }
 
 .cards {
@@ -68,3 +76,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+
+
+
