@@ -28,9 +28,12 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import {selectTabs} from '../components/dash_tabs';
+// import {scrollButton} from '../components/scroll_button';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
    selectTabs();
+   // scrollButton();
 });
