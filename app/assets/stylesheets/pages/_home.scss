@@ -1,9 +1,14 @@
 // Specific CSS for your home-page
+.gameawarelogo {
+  width: 100px;
+  position: relative;
+  left: 125px;
+  top: 50px;
+}
 .banner-img {
   background-size: cover;
   height: 150px;
   width: 100%;
-  filter: grayscale(1);
 }
 
 .search-homepage {
@@ -13,6 +18,7 @@
 .main-text {
   text-align: center;
   font-size: 15px;
+  color: gray;
 }
 
 .cards {
