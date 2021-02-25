@@ -5,4 +5,5 @@ class Game < ApplicationRecord
   has_many :esrb_interactive_elements, through: :game_interactive_elements
   has_many :user_reviews
   belongs_to :esrb_rating_category
+  has_one_attached :photo
 end
