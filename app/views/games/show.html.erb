@@ -1,75 +1,96 @@
 <div class="container">
-  <h1><%= @game.name %></h1>
-  <div class="rating-block">
-    <h3> Recommended age ratings </h3>
-    <div class="esrb-rating">
-      <% if @rating_category.name == "Mature 17+"%>
-         esrb reco : <%= esrb_age = 17 %>
-         <% elsif @rating_category.name == "Everyone"%>
-         esrb reco : <%= esrb_age = 3 %>
-         <% elsif @rating_category.name == "Rating Pending"%>
-         esrb reco : <%= esrb_age = "N/C" %>
-         <% elsif @rating_category.name == "Everyone 10+"%>
-         esrb reco : <%= esrb_age = 10 %>
-         <% elsif @rating_category.name == "Adults Only 18+"%>
-         esrb reco : <%= esrb_age = 18 %>
-         <% elsif @rating_category.name == "Teen"%>
-         esrb reco : <%= esrb_age = 13 %>
-         <% else %>
-         esrb reco : <%= esrb_age == "N/C" %>
-      <% end %>
+    <%= link_to games_path do %>
+      <i class="fas fa-caret-left"></i>
+    <% end %>
+    <div class="index-card-game">
+     <%= cl_image_tag @game.photo.key %>
+      <div class="index-card-game-infos">
+        <h2> <%= @game.name %> - age rating </h2>
+        <div class="rating-block">
+          <div class="esrb-rating">
+            <% if @rating_category.name == "Mature 17+"%>
+              <p>esrb : <%= esrb_age = 17 %></p> 
+              <% elsif @rating_category.name == "Everyone"%>
+              <p>esrb : <%= esrb_age = 3 %></p> 
+              <% elsif @rating_category.name == "Rating Pending"%>
+              <p>esrb : <%= esrb_age = "N/C" %></p> 
+              <% elsif @rating_category.name == "Everyone 10+"%>
+              <p>esrb : <%= esrb_age = 10 %></p>
+              <% elsif @rating_category.name == "Adults Only 18+"%>
+              <p>esrb : <%= esrb_age = 18 %></p>
+              <% elsif @rating_category.name == "Teen"%>
+              <p>esrb : <%= esrb_age = 13 %></p>
+              <% else %>
+              <p>esrb : <%= esrb_age == "N/C" %></p>
+            <% end %>
+          </div>
+          <div class="parents-rating">
+            <% if @game.user_reviews.count > 0 %>
+              <% sum = 0 %>
+              <% @game.user_reviews.each do |review| %>
+              <% sum += review.age %>
+              <% end %>
+              <p> Parents : <%= average_p_rating = sum / @game.user_reviews.count %> </p>
+              
+              <% else %>
+              <% average_p_rating = 0 %>
+              <p> No parents reviews </p>
+            <% end %>
+          </div>
+          <div class="game-aware-rating">
+            <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
+              <% game_aware_rating = "N/C" %>
+            <% elsif esrb_age == "N/C" %>
+            <%= game_aware_rating = average_p_rating  %>
+            <% else %>
+              <p>Game-Aware : <%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="parents-rating">
-      <% if @game.user_reviews.count > 0 %>
-        <% sum = 0 %>
-        <% @game.user_reviews.each do |review| %>
-        <% sum += review.age %>
-        <% end %>
-        <p> Avg Parent rating : <%= average_p_rating = sum / @game.user_reviews.count %>
-        <br> Based on : <br> <%= @game.user_reviews.count %> parent reviews
-        <% else %>
-        <p> no parents reviews </p>
-      <% end %>
-    <div class="game-aware-rating">
-      Game-Aware rating : <%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %>
-    </div>
-    </div>
-  </div>
+  
+
   <hr>
   <div class="kids-recommandation">
     <% if @user %>
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
         <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
-          <div class="kid
-          <%if (kid_age) < (game_aware_rating - 1) %>
-              <%= 'redbg' %>
-          <% elsif kid_age >= game_aware_rating %>  %>
-              <%= 'greenbg' %>
-          <% else %>
-              <%= 'orangebg' %>
-          <% end %>
-          ">
-            <p> <%= kid.name %>
-            Age : <%= kid_age %>
-            <% if kid_age >= game_aware_rating %>
-              👍
-              <% elsif (kid_age) < (game_aware_rating - 1)%>
-              👎
-              <% else %>
-              😐
+          <div class="kid-line
+          <% if game_aware_rating == "N/C" %>
+            <%= 'orangebg' %>
+          <% else %>      
+            <%if (kid_age) < (game_aware_rating - 1) %>
+                <%= 'redbg' %>
+            <% elsif kid_age >= game_aware_rating %>  %>
+                <%= 'greenbg' %>
+            <% else %>
+                <%= 'orangebg' %>
             <% end %>
-          </p>
+          <% end %> 
+          ">
+            <p> <span class="kid-name"><%= kid.name %> </span>
+            <span class="kid-age"> Age : <%= kid_age %> </span>
+            <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
+            😐
+            <% else %>
+              <% if kid_age >= game_aware_rating %>
+                <i class="far fa-thumbs-up"></i>
+                <% elsif (kid_age) < (game_aware_rating - 1)%>
+                <i class="far fa-thumbs-down"></i>
+                <% else %>
+                <i class="fas fa-exclamation-circle"></i>
+              <% end %>
+            <% end %>
+          </span> </p>
         </div>
         <% end %>
       <% else %>
         <%= link_to("+ Add a kid", new_kid_path) %>
       <% end %>
     <% end %>
-    <hr>
   </div>
-
-  <%= cl_image_tag @game.photo.key %>
 
   <hr>
 
