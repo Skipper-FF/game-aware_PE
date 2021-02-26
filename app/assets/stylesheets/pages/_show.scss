@@ -56,6 +56,11 @@
 
 }
 
+.rating-category {
+  display: flex;
+  justify-content: space-between;
+}
+
 .show-header {
   position: absolute;
   top: 4px;
@@ -71,7 +76,7 @@
   font-size: 24px;
   font-weight: normal;
   margin: 0;
-  width: 100%;
+  width: 95%;
   text-align: center;
   font-weight: bold;
   position: absolute;
@@ -114,6 +119,7 @@
     font-size: 14px;
     font-weight: bold;
     margin: 0;
+    color: #FF7130;
    }
 
    p {
@@ -129,4 +135,28 @@
     color: gray;
     text-align: center;
    }
+}
+
+.show-infos {
+  font-size: 14px;
+
+  p {
+    color: gray;
+  }
+
+  summary {
+  font-size: 16px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+#game-img {
+  padding-left: 8px;
 }
