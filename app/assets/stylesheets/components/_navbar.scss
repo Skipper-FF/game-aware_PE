@@ -6,28 +6,28 @@
   position: fixed;
   width: 100%;
   bottom:  0;
-  background-color: #FF7130;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  background-color: white;
+  padding-top: 2px;
+  padding-bottom: 2px;
 
   .navbar-collapse {
   text-align: right;
   }
 
   .navbar-brand img {
-    width: 40px;
-    filter: brightness(10);
+    width: 35px;
+    // filter: brightness(10);
   }
 }
 
 #navbar-button {
 border-style: none;
 background-color: transparent;
-color: white;
-font-size: 28px;
+color: #FF7130;
+font-size: 24px;
 }
 
 #navbar-icons {
-  color: white;
-  font-size: 26px;
+  color: #FF7130;
+  font-size: 22px;
 }
