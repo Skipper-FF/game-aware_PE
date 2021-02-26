@@ -1,0 +1,19 @@
+.button-add, .list-options {
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  background-color: #ff7334;
+  color: white;
+  border: solid 1px #ff7334;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.list-options {
+  display: none;
+}
+
+.list-options.expanded {
+  display: inline-block;
+  width: 100%;
+}
