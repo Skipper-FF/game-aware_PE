@@ -4,6 +4,7 @@
   position: relative;
   left: 125px;
   top: 50px;
+  filter: brightness(10);
 }
 
 
@@ -42,6 +43,10 @@
 
 .card-category p {
   font-size: 15px;
+}
+
+.card-links:hover{
+  text-decoration: none;
 }
 
 // Smallest device
