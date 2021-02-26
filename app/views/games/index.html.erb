@@ -1,16 +1,37 @@
+<div class="banner">
+  <div class="banner-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com//U4Mpfqrt-_k/1900x900);">
+    <%= image_tag "gameaware.png", class: "gameawarelogo" %>
+  </div>
+</div>
 <div class="container">
-<h1> Résultats</h1>
-<p>Font test</p>
-<%= link_to 'Home 🏠', root_path %>
-<% @game.each do |game| %>
-  <%= link_to game_path(game) do %>
-    <div class="index-card-game">
-      <%= cl_image_tag game.photo.key %>
-      <div class="index-card-game-infos">
-       <h2> <%= game.name %> </h2>
-       <p> <%= game.description.truncate_words(14) %></p>
+  <div class="search-homepage">
+    <%= link_to games_path do %>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group rounded">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
       </div>
-    </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h1></h1>
+  <div class="index-text">
+  <p><em>Search results</em></p>
+  </div>
+  <% @game.each do |game| %>
+    <%= link_to game_path(game) do %>
+      <div class="index-card-game">
+        <%= cl_image_tag game.photo.key %>
+        <div class="index-card-game-infos">
+         <h2> <%= game.name %> </h2>
+         <p> <%= game.description.truncate_words(14) %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
