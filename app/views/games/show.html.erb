@@ -11,7 +11,7 @@
     <h1 class="h1-show"><%= @game.name %></h1>
     <div class="show-card-game">
       <div class="show-card-game-infos">
-        <h2 class="show-game-title"> Age ratings </h2>
+        <h2 class="show-game-title"> Suitable for kids (y/o) </h2>
         <div class="rating-block">
           <div class="esrb-rating">
             <% if @rating_category.name == "Mature 17+"%>
@@ -99,33 +99,31 @@
   </div>
 
   <hr>
-
-  <h2>Description</h2>
+<div class="show-infos">
+  <h2 id="show-infos-h2">What is this game about ?</h2>
   <p><%= @game.description %></p>
 
   <hr>
 
-  <h3>Rating summary</h3>
    <details>
-    <summary>Show summary</summary>
+    <summary>Why is it rated <strong> <%= esrb_age %>+ </strong> by ESRB ?</summary>
+
     <p><%= @game.rating_summary %></p>
   </details>
 
   <hr>
-
-  <h4>Rating category</h4>
-  <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '128' %>
   <details>
-    <summary>Show details</summary>
-    <p><%= @rating_category.name %></p>
+    <summary>What is the <strong> <%= @rating_category.name %> </strong> rating about ?</summary>
+    <div class="rating-category">
     <p><%= @rating_category.description %></p>
+    <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+  </div>
   </details>
 
   <hr>
 
-  <h5>Content descriptors</h5>
   <details>
-    <summary>Show descriptors</summary>
+    <summary>What could be offensive in this game ?</summary>
     <ul>
       <% @game.esrb_content_descriptors.each do |descriptor| %>
         <li><%= descriptor.name %></li>
@@ -135,9 +133,8 @@
 
   <hr>
 
-  <h5>Interactive elements</h5>
   <details>
-    <summary>Show elements</summary>
+    <summary>Online features to consider</summary>
     <ul>
       <% @game.esrb_interactive_elements.each do |element| %>
         <li><%= element.name %></li>
@@ -150,4 +147,5 @@
     <%= render "user_reviews/index", user_review: @user_review %>
   <hr>
   <%= render ("user_reviews/new"), user_review: @user_review %>
+  </div>
 </div>
