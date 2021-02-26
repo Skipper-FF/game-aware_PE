@@ -1,12 +1,16 @@
+.index-text p {
+  text-align: center;
+  color: gray;
+}
+
 .index-card-game {
   overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  // box-shadow: 0 0 15px rgba(244,240,235,1);
   display: flex;
   align-items: center;
-  margin-top: 16px;
+  margin-top: 8px;
   background-color: white;
   border: 1px solid #FF7130;
   border-radius: 8px;
