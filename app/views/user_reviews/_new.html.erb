@@ -2,7 +2,7 @@
   <p class="button-add">Add a comment</p>
   <div class="list-options">
     <%= simple_form_for [@game, @user_review] do |f| %>
-    <%= f.input :age, collection: 0..18 %>
+    <%= f.input :age, collection: 0..18, label: 'Recommended age' %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :rating, collection: 0..5 %>
