@@ -28,6 +28,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import {selectTabs} from '../components/dash_tabs';
 import {alertDismiss} from '../components/alert_dismiss';
+import {addComment} from '../components/add_comment';
 // import {scrollButton} from '../components/scroll_button';
 
 
@@ -36,5 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
    selectTabs();
    alertDismiss();
+   addComment();
    // scrollButton();
 });
