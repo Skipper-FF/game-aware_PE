@@ -5,17 +5,128 @@
   margin-bottom: 5px;
   margin-top: 5px;
     p {
-      span {
-      }
-
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
     }
 }
 .redbg {
   background-color: rgb(255, 96, 96);
 }
 .greenbg {
-  background-color: green;
+  background-color: rgb(138, 234, 159);
 }
 .orangebg {
-  background-color: orange;
+  background-color: rgb(255, 195, 112);
+}
+
+.show-game-title {
+  text-align: center;
+  padding-bottom: 8px;
+}
+.rating-block {
+  display: flex;
+  justify-content: space-evenly;
+  p {
+    text-align: center;
+    span {
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
+.esrb-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+.parents-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+.game-aware-rating {
+  padding: 3px;
+}
+
+#back-arrow {
+  color: #FF7130;
+  font-size: 22px;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+
+}
+
+.show-header {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+
+.h1-show {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top : 60px;
+  color: white;
+
+}
+.show-banner {
+  background-size: contain;
+  position: relative;
+}
+
+.show-banner-img {
+  background-size: cover;
+  height: 150px;
+  width: 100%;
+}
+
+.show-card-game {
+  // overflow: hidden;
+  // height: 120px;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(244,240,235,1);
+  // display: flex;
+  align-items: center;
+  margin-top: 16px;
+  background-color: white;
+  border: 1px solid #FF7130;
+  border-radius: 16px;
+
+   img {
+    height: 100%;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 16px;
+   }
+
+   h2 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+   }
+
+   p {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 4px;
+   }
+
+   .show-card-game-infos {
+    padding: 6px;
+    color: gray;
+    text-align: center;
+   }
 }
