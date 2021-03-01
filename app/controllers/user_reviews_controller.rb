@@ -20,6 +20,7 @@ class UserReviewsController < ApplicationController
       redirect_to game_path(@game)
     else
       flash[:notice] = 'An error has occured, please try again.'
+      # render :partial => "user_reviews/new", :object => @user_review
       render :new
     end
   end
