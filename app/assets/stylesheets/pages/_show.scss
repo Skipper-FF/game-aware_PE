@@ -1,52 +1,3 @@
-.kid-line {
-  border-radius: 9px;
-  padding: 4px;
-  height: 28px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-    p {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    }
-}
-.redbg {
-  background-color: rgb(253, 239, 240);
-}
-.greenbg {
-  background-color: rgb(241, 251, 245);
-}
-.orangebg {
-  background-color: rgb(255, 255, 255);
-}
-
-.show-game-title {
-  text-align: center;
-  padding-bottom: 8px;
-}
-.rating-block {
-  display: flex;
-  justify-content: space-evenly;
-  p {
-    text-align: center;
-    span {
-      font-weight: bold;
-      color: black;
-    }
-  }
-}
-.esrb-rating {
-  // border-right: 1px solid grey;
-  padding: 3px;
-}
-.parents-rating {
-  // border-right: 1px solid grey;
-  padding: 3px;
-}
-.game-aware-rating {
-  padding: 3px;
-}
-
 #back-arrow {
   color: #FFFFFF;
   font-size: 15px;
@@ -56,19 +7,16 @@
 
 }
 
-.rating-category {
-  display: flex;
-  justify-content: space-between;
+.show-banner {
+  background-size: contain;
+  position: relative;
 }
 
-.show-header {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 30px;
-  height: 30px;
+.show-banner-img {
+  background-size: cover;
+  height: 190px;
+  width: 100%;
 }
-
 
 .h1-show {
   font-size: 24px;
@@ -82,15 +30,13 @@
   color: white;
 
 }
-.show-banner {
-  background-size: contain;
-  position: relative;
-}
 
-.show-banner-img {
-  background-size: cover;
-  height: 190px;
-  width: 100%;
+.show-header {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
 }
 
 .show-card-game {
@@ -117,9 +63,9 @@
 
    h4 {
     font-size: 14px;
-    margin: 0;
     color: #FF7130;
-    margin: 10px auto;
+    margin-bottom: 0px;
+    margin-top: 8px;
    }
 
    p {
@@ -131,31 +77,124 @@
    }
 
    .show-card-game-infos {
-    padding: 6px;
+    padding: 12px;
     color: gray;
     text-align: center;
    }
 }
 
-.show-infos {
-  font-size: 14px;
+
+.show-game-title {
+  text-align: center;
+  padding-bottom: 8px;
+}
+.rating-block {
+  display: flex;
+  justify-content: space-around;
+  p {
+    text-align: center;
+    color: black;
+    span {
+      font-weight: bold;
+      color: grey;
+    }
+  }
+}
+.esrb-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+
+.parents-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+.game-aware-rating {
+  padding: 3px;
+}
+
+.kid-line {
+  border-radius: 9px;
+  padding: 4px;
+  height: 28px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+    p {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    }
+}
+.redbg {
+  background-color: rgb(253, 239, 240);
+}
+.greenbg {
+  background-color: rgb(241, 251, 245);
+}
+.orangebg {
+  background-color: rgb(255, 255, 255);
+}
+
+.rating-category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-infos-game-summary {
+  font-size: 12px;
+  background: #FFFFFF;
 
   p {
     color: gray;
+    font-size: 12px;
+    font-weight: lighter;
+  }
+}
+
+.show-infos {
+  font-size: 12px;
+  background: #F6F6F6;
+
+  p {
+    color: gray;
+    font-size: 12px;
+    font-weight: lighter;
   }
 
   summary {
-  font-size: 16px;
+    font-size: 14px;
+    font-weight: lighter;
   }
 
-  h2 {
-    font-size: 16px;
-  }
 
   h3 {
     font-size: 16px;
   }
 }
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.chevron::before {
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: '';
+  display: inline-block;
+  height: 0.45em;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  width: 0.45em;
+  color: gray;
+}
+
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
 
 #game-img {
   padding-left: 8px;
@@ -164,7 +203,5 @@
 .modal-button {
   border: none;
   background: none;
-  color: lightgrey;
+  color: #FF7130;
 }
-
-

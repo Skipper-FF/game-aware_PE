@@ -10,99 +10,103 @@
     <% end %>
   </div>
 </div>
+
 <div class="container">
-    <div class="show-card-game">
-      <div class="show-card-game-infos">
-        <h4 class="show-game-title"> Recommended age for kids </h4>
-        <div class="rating-block">
-          <div class="esrb-rating">
-            <button type="button" class="modal-button" data-toggle="modal" data-target="#ESRBModal">
-             <i class="fas fa-info-circle"></i>
-            </button>
-            <% if @rating_category.name == "Mature 17+"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = 17 %></p>
-              <% elsif @rating_category.name == "Everyone"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = 3 %></p>
-              <% elsif @rating_category.name == "Rating Pending"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = "N/C" %></p>
-              <% elsif @rating_category.name == "Everyone 10+"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = 10 %></p>
-              <% elsif @rating_category.name == "Adults Only 18+"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = 18 %></p>
-              <% elsif @rating_category.name == "Teen"%>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age = 13 %></p>
-              <% else %>
-              <p> <span>ESRB</span> </p> <p> <%= esrb_age == "N/C" %></p>
-            <% end %>
-          </div>
-          <div class="parents-rating">
+  <div class="show-card-game">
+    <div class="show-card-game-infos">
+      <h4 class="show-game-title"> Recommended age for kids: </h4>
+      <div class="rating-block">
+        <div class="esrb-rating">
+          <button type="button" class="modal-button" id="button-rating" data-toggle="modal" data-target="#ESRBModal">
+            <i class="fas fa-info-circle"></i>
+          </button>
+          <% if @rating_category.name == "Mature 17+"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = 17 %> years old</p>
+            <% elsif @rating_category.name == "Everyone"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = 3 %> years old</p>
+            <% elsif @rating_category.name == "Rating Pending"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = "N/C" %> years old</p>
+            <% elsif @rating_category.name == "Everyone 10+"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = 10 %> years old</p>
+            <% elsif @rating_category.name == "Adults Only 18+"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = 18 %> years old</p>
+            <% elsif @rating_category.name == "Teen"%>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = 13 %> years old</p>
+            <% else %>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age == "N/C" %></p>
+          <% end %>
+        </div>
+        <div class="parents-rating">
           <button type="button" class="modal-button" data-toggle="modal" data-target="#Parentsmodal">
            <i class="fas fa-info-circle"></i>
           </button>
-            <% if @game.user_reviews.count > 0 %>
-              <% sum = 0 %>
-              <% @game.user_reviews.each do |review| %>
-              <% sum += review.age %>
-              <% end %>
-              <p><span>Parents</span> </p> <p><%= average_p_rating = sum / @game.user_reviews.count %> </p>
+          <% if @game.user_reviews.count > 0 %>
+            <% sum = 0 %>
+            <% @game.user_reviews.each do |review| %>
+            <% sum += review.age %>
+            <% end %>
+            <p><span>Parents</span> </p> <p><%= average_p_rating = sum / @game.user_reviews.count %> years old</p>
 
-              <% else %>
-              <% average_p_rating = 0 %>
-              <p> No parents reviews </p>
-            <% end %>
-          </div>
-          <div class="game-aware-rating">
-            <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
-             <i class="fas fa-info-circle"></i>
-            </button>
-            <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
-              <% game_aware_rating = "N/C" %>
-            <% elsif esrb_age == "N/C" %>
+          <% else %>
+            <% average_p_rating = 0 %>
+            <p> No parents reviews </p>
+          <% end %>
+        </div>
+        <div class="game-aware-rating">
+          <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
+           <i class="fas fa-info-circle"></i>
+          </button>
+          <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
+            <% game_aware_rating = "N/C" %>
+          <% elsif esrb_age == "N/C" %>
             <%= game_aware_rating = average_p_rating  %>
-            <% else %>
-              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %></p>
-            <% end %>
-          </div>
+          <% else %>
+            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %> years old </p>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
+
     <br>
     <br>
     <br>
     <br>
+
+
   <div class="kids-recommandation">
     <% if @user %>
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
         <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
           <div class="kid-line
-          <% if game_aware_rating == "N/C" %>
-            <%= 'orangebg' %>
-          <% else %>
-            <%if (kid_age) < (game_aware_rating - 1) %>
-                <%= 'redbg' %>
-            <% elsif kid_age >= game_aware_rating %>  %>
-                <%= 'greenbg' %>
+            <% if game_aware_rating == "N/C" %>
+              <%= 'orangebg' %>
             <% else %>
-                <%= 'orangebg' %>
+              <%if (kid_age) < (game_aware_rating - 1) %>
+                  <%= 'redbg' %>
+              <% elsif kid_age >= game_aware_rating %>  %>
+                  <%= 'greenbg' %>
+              <% else %>
+                  <%= 'orangebg' %>
+              <% end %>
             <% end %>
-          <% end %>
-          ">
+            ">
             <p> <span class="kid-name"><%= kid.name %> </span>
             <span class="kid-age"> Age : <%= kid_age %> </span>
             <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
-            😐
-            <% else %>
-              <% if kid_age >= game_aware_rating %>
-                <i class="far fa-thumbs-up"></i>
+              😐
+              <% else %>
+                <% if kid_age >= game_aware_rating %>
+                  <i class="far fa-thumbs-up"></i>
                 <% elsif (kid_age) < (game_aware_rating - 1)%>
-                <i class="far fa-thumbs-down"></i>
+                  <i class="far fa-thumbs-down"></i>
                 <% else %>
-                <i class="fas fa-exclamation-circle"></i>
+                  <i class="fas fa-exclamation-circle"></i>
+                <% end %>
               <% end %>
-            <% end %>
-          </span> </p>
-        </div>
+            </span> </p>
+          </div>
         <% end %>
       <% else %>
         <%= link_to("+ Add a kid", new_kid_path) %>
@@ -110,57 +114,62 @@
     <% end %>
   </div>
 
-  <hr>
-<div class="show-infos">
-  <h2 id="show-infos-h2">What is this game about ?</h2>
-  <p><%= @game.description %></p>
 
   <hr>
 
-   <details>
-    <summary>Why is it rated <strong> <%= esrb_age %>+ </strong> by ESRB ?</summary>
-
-    <p><%= @game.rating_summary %></p>
-  </details>
-
-  <hr>
-  <details>
-    <summary>What is the <strong> <%= @rating_category.name %> </strong> rating about ?</summary>
-    <div class="rating-category">
-    <p><%= @rating_category.description %></p>
-    <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+  <div class="show-infos-game-summary">
+    <h2 id="show-infos-h2"></h2>
+    <p><%= @game.description %></p>
   </div>
-  </details>
+<div class="esrb-infos">
+  <div class="show-infos">
+     <details>
+      <summary>Why is it rated <strong> <%= esrb_age %>+ </strong> by ESRB ? <span class="chevron bottom"></span></summary>
 
-  <hr>
+      <p><%= @game.rating_summary %></p>
+    </details>
 
-  <details>
-    <summary>What could be offensive in this game ?</summary>
-    <ul>
-      <% @game.esrb_content_descriptors.each do |descriptor| %>
-        <li><%= descriptor.name %></li>
-      <% end %>
-    </ul>
-  </details>
+    <hr>
+    <details>
+      <summary>What is the <strong> <%= @rating_category.name %> </strong> rating about ? <span class="chevron bottom"></span></summary>
+      <div class="rating-category">
+      <p><%= @rating_category.description %></p>
+      <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+    </div>
+    </details>
 
-  <hr>
+    <hr>
 
-  <details>
-    <summary>Online features to consider</summary>
-    <ul>
-      <% @game.esrb_interactive_elements.each do |element| %>
-        <li><%= element.name %></li>
-      <% end %>
-    </ul>
-  </details>
-  <hr>
+    <details>
+      <summary>What could be offensive in this game ? <span class="chevron bottom"></span></summary>
+      <ul>
+        <% @game.esrb_content_descriptors.each do |descriptor| %>
+          <li><%= descriptor.name %></li>
+        <% end %>
+      </ul>
+    </details>
+
+    <hr>
+
+    <details>
+      <summary>Online features to consider <span class="chevron bottom"></span></summary>
+      <ul>
+        <% @game.esrb_interactive_elements.each do |element| %>
+          <li><%= element.name %></li>
+        <% end %>
+      </ul>
+    </details>
   </div>
+</div>
 
-  <h4>Game comments</h4>
+  <br>
+  <br>
+
+  <h4>Parents comments</h4>
     <%= render "user_reviews/index", user_review: @user_review %>
   <hr>
   <%= render ("user_reviews/new"), user_review: @user_review %>
-</div>
+
 
 
 
