@@ -14,6 +14,9 @@
         <h2 class="show-game-title"> Suitable for kids (y/o) </h2>
         <div class="rating-block">
           <div class="esrb-rating">
+            <button type="button" class="modal-button" data-toggle="modal" data-target="#ESRBModal">
+             <i class="fas fa-info-circle"></i>
+            </button>
             <% if @rating_category.name == "Mature 17+"%>
               <p> <span>ESRB</span> </p> <p> <%= esrb_age = 17 %></p>
               <% elsif @rating_category.name == "Everyone"%>
@@ -31,6 +34,9 @@
             <% end %>
           </div>
           <div class="parents-rating">
+          <button type="button" class="modal-button" data-toggle="modal" data-target="#Parentsmodal">
+           <i class="fas fa-info-circle"></i>
+          </button>
             <% if @game.user_reviews.count > 0 %>
               <% sum = 0 %>
               <% @game.user_reviews.each do |review| %>
@@ -44,6 +50,9 @@
             <% end %>
           </div>
           <div class="game-aware-rating">
+            <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
+             <i class="fas fa-info-circle"></i>
+            </button>
             <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
               <% game_aware_rating = "N/C" %>
             <% elsif esrb_age == "N/C" %>
@@ -147,4 +156,64 @@
     <%= render "user_reviews/index", user_review: @user_review %>
   <hr>
   <%= render ("user_reviews/new"), user_review: @user_review %>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ESRBModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ESRB</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ESRB is the abbreviation for <em><strong>E</strong>ntertainment <strong>S</strong>oftware <strong>R</strong>ating <strong>B</strong>oard</em>, a self-regulatory body for the interactive entertainment software industry established in 1994 by the Entertainment Software Association (ESA). ESRB independently applies and enforces ratings, advertising guidelines, and online privacy principles adopted by the computer and video game industry.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="GAModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Game-Aware</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Game-Aware
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Parentsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Parents</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Parents
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
