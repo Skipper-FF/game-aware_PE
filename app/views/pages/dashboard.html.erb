@@ -1,41 +1,42 @@
-<div class="container">
-  <h1>dashboard</h1>
+<div class="container dashboard-container">
+  <h4 id="dashboard-h4">Your dashboard</h4>
     <ul class="list-inline tabs-underlined">
      <li>
-       <a href="#" class="tab-underlined active" id="btn-kids">Your Kids </a>
+       <a href="#" class="tab-underlined active" id="btn-kids">Kids </a>
     </li>
     <li>
-      <a href="#" class="tab-underlined" id="btn-profile">Your Profile</a>
+      <a href="#" class="tab-underlined" id="btn-profile">Profile</a>
      </li>
 
   </ul>
 
   <div id="dash-tab2">
-  <h2> Your Kids </h2>
   <% @user.kids.each do |kid| %>
-    <p> Name : <%= kid.name %> </p>
-    <p> Age : <%= (Date.today - kid.birthdate).to_i/365 %></p>
-    <%= link_to edit_kid_path(kid) do  %>
-    <i class="far fa-edit"></i>
-    <% end %>
-    <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
-    <i class="fas fa-user-times"></i>
-    <% end %>
-    <hr>
+    <div class="dashboard-kid-card">
+      <div class="dashboard-kid-card-container">
+        <p id="kid-name"><%= kid.name %> </p>
+        <p id="kid-age"> <%= (Date.today - kid.birthdate).to_i/365 %> years old</p>
+        <hr>
+        <div class="recommandations">
+          <p id="recommended"> Recommended for <%= kid.name %> :</p>
+          <%= link_to edit_kid_path(kid) do  %>
+          <i class="far fa-edit"></i>
+          <% end %>
+          <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
+          <i class="fas fa-user-times"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-    <br>
-  <%= link_to("+ Add a kid", new_kid_path) %>
   </div>
+  <%= link_to "Add a kid +", new_kid_path, class: "add-kid-button" %>
 
   <div class="toggle-display" id="dash-tab1">
-    <h2>Your Profile</h2>
+    <h2>Profile</h2>
       <p>Username : <%= @user.username %></p>
       <p>Email : <%= @user.email %></p>
       <p> Member since : <%= @user.created_at.strftime("%d-%B-%Y") %> </p>
 
       <p> Number of reviews : <%= @user.user_reviews.count %></p>
-  </div>
-
-
-
 </div>

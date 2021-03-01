@@ -1,6 +1,7 @@
 .tabs-underlined {
   display: flex;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .tabs-underlined .tab-underlined {
@@ -15,9 +16,68 @@
 
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
-  border-bottom: 3px solid #555555;
+  border-bottom: 3px solid #FF7130;
 }
 
 .toggle-display {
   display: none;
+}
+
+.dashboard-container {
+  background-color: #F6F6F6;
+}
+
+.dashboard-kid-card {
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+#dashboard-h4 {
+  padding: 8px;
+  padding-top: 24px;
+  font-size: 22px;
+  font-weight: 600;}
+
+.dashboard-container {
+
+  h4 {
+    color: #4F4F4F;
+  }
+
+  .dashboard-kid-card-container {
+    padding: 16px;
+    padding-top: 24px;
+  }
+}
+
+#kid-name {
+  line-height: 4px;
+}
+
+#kid-age {
+  color: grey;
+  font-size: 12px;
+  line-height: 4px;
+}
+
+.recommandations {
+
+}
+
+#recommended {
+  color: #FF7130;
+  font-size: 11px;
+  margin-top: -10px;
+}
+
+.add-kid-button {
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  background-color: #ff7334;
+  color: white;
+  border-radius: 5px;
+  position: fixed;
+  width: 92%;
 }
