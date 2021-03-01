@@ -108,7 +108,6 @@ games['games'].each do | game |
   end
     game['genres'].each do | genre_json |
     genre = Genre.find_by(igdb_id: genre_json)
-    p genre
     unless genre.nil?
       new_game_genre = GameGenre.new(
       game_id: new_game.id,
