@@ -29,6 +29,7 @@ import "bootstrap";
 import {selectTabs} from '../components/dash_tabs';
 import {alertDismiss} from '../components/alert_dismiss';
 import {addComment} from '../components/add_comment';
+// import {displayModal} from '../components/display_modal';
 // import {scrollButton} from '../components/scroll_button';
 
 
@@ -38,5 +39,6 @@ document.addEventListener('turbolinks:load', () => {
    selectTabs();
    alertDismiss();
    addComment();
+   // displayModal();
    // scrollButton();
 });

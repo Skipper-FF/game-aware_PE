@@ -16,12 +16,18 @@
     </ul>
   </div>
   <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag "logo.png" %>
+  <%= image_tag "logo.svg", class: "#{request.path == root_path ? 'selected' : 'logo-disable'}
+" %>
   <% end %>
   <%= link_to games_path, class: "navbar-brand" do %>
-  <i class="fas fa-search" id="navbar-icons"></i>
+  <i class="fas fa-search navbar-button
+  <%= 'selected' if request.path == games_path || params[:action] == "show"%>
+  "></i>
   <% end %>
-  <button class="" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="navbar-button">
+  <button class="navbar-button
+  <%= 'selected' if request.path == dashboard_path%>
+  "
+  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-users-cog"></i>
       </button>
 </div>
