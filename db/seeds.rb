@@ -15,6 +15,8 @@ Game.destroy_all
 EsrbRatingCategory.destroy_all
 EsrbContentDescriptor.destroy_all
 EsrbInteractiveElement.destroy_all
+GameGenre.destroy_all
+Genre.destroy_all
 puts 'Database cleaned !'
 puts''
 
@@ -53,6 +55,20 @@ esrb['interactive_elements'].each do | interactive_element |
 end
 puts 'Interactive elements added !'
 
+genres_filepath = 'db/seeds/genres.json'
+genres_file  = File.read(File.join(Rails.root,genres_filepath))
+genres = JSON.parse(genres_file)
+
+puts 'Adding Genres...'
+genres['genres'].each do | genre |
+  element = Genre.new(
+    name: genre['name'],
+    igdb_id: genre['id']
+    )
+  element.save!
+end
+puts 'Genre added !'
+
 games_filepath = 'db/seeds/games.json'
 games_file = File.read(File.join(Rails.root,games_filepath))
 games = JSON.parse(games_file)
@@ -88,6 +104,16 @@ games['games'].each do | game |
       esrb_interactive_element_id: esrb_interactive_element.id
       )
       new_game_interactive_element.save!
+    end
+  end
+    game['genres'].each do | genre_json |
+    genre = Genre.find_by(igdb_id: genre_json)
+    unless genre.nil?
+      new_game_genre = GameGenre.new(
+      game_id: new_game.id,
+      genre_id: genre.id
+      )
+      new_game_genre.save!
     end
   end
   puts "#{game['name']} added !"
