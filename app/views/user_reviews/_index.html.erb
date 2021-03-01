@@ -1,26 +1,30 @@
 <div class="container">
-  <ul>
-      <% @game.user_reviews.each do |review| %>
-      <li>
-        <strong>Recommended age:</strong> <%= review.age %>
-        <strong>Title:</strong> <%= review.title%>
-        <strong>Description:</strong> <%= review.description %>
-        <strong><%= review.rating %>/5</strong>
-      </li>
-      <% if user_signed_in? %>
-        <% if policy(review).edit? %>
-            <%= link_to edit_user_review_path(review) do  %>
-            <i class="far fa-edit"></i>
+  <div class="index-form">
+    <ul>
+        <% @game.user_reviews.each do |review| %>
+        <div class="index-list-form">
+        <li>
+          <p>Recommended age: <%= review.age %></p>
+          <p>Title: <%= review.title%></p>
+          <p>Description: <%= review.description %></p>
+          <p><%= review.rating %>/5</p>
+        </li>
+        <% if user_signed_in? %>
+          <% if policy(review).edit? %>
+              <%= link_to edit_user_review_path(review) do  %>
+              <i class="far fa-edit"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if policy(review).destroy? %>
-            <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
-            <i class="far fa-trash-alt"></i>
+          <% if policy(review).destroy? %>
+              <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
+  </div>
 </div>
 
 
