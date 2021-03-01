@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_110326) do
+ActiveRecord::Schema.define(version: 2021_03_01_111143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2021_02_25_110326) do
     t.index ["game_id"], name: "index_game_content_descriptors_on_game_id"
   end
 
+  create_table "game_genres", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_game_genres_on_game_id"
+    t.index ["genre_id"], name: "index_game_genres_on_genre_id"
+  end
+
   create_table "game_interactive_elements", force: :cascade do |t|
     t.bigint "game_id", null: false
     t.bigint "esrb_interactive_element_id", null: false
@@ -84,6 +93,13 @@ ActiveRecord::Schema.define(version: 2021_02_25_110326) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["esrb_rating_category_id"], name: "index_games_on_esrb_rating_category_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "igdb_id"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -124,6 +140,8 @@ ActiveRecord::Schema.define(version: 2021_02_25_110326) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "game_content_descriptors", "esrb_content_descriptors"
   add_foreign_key "game_content_descriptors", "games"
+  add_foreign_key "game_genres", "games"
+  add_foreign_key "game_genres", "genres"
   add_foreign_key "game_interactive_elements", "esrb_interactive_elements"
   add_foreign_key "game_interactive_elements", "games"
   add_foreign_key "games", "esrb_rating_categories"

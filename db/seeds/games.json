@@ -7,7 +7,8 @@
       "rating_category": "M",
       "content_descriptors": ["Blood and Gore", "Intense Violence", "Mature Humor", "Nudity", "Strong Language", "Strong Sexual Content", "Use of Drugs", "Use of Alcohol"],
       "interactive_elements": ["Online Interactions Not Rated by the ESRB"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.jpg",
+      "genres": [5, 10, 14, 31]
     },
     {
       "name": "Super Mario 3D All-Stars",
@@ -16,7 +17,8 @@
       "rating_category": "E",
       "content_descriptors": ["Cartoon Violence"],
       "interactive_elements": ["No Interactive Elements"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mf8.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mf8.jpg",
+      "genres": [8, 9]
     },
     {
       "name": "Goat Simulator",
@@ -25,7 +27,8 @@
       "rating_category": "M",
       "content_descriptors": ["Blood", "Crude Humor", "Drug Reference", "Strong Language", "Violence"],
       "interactive_elements": ["No Interactive Elements"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2dhr.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2dhr.jpg",
+      "genres": [13, 32]
     },
     {
       "name": "Fortnite",
@@ -34,7 +37,9 @@
       "rating_category": "T",
       "content_descriptors": ["Violence"],
       "interactive_elements": ["Users Interact", "In-Game Purchases"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ekt.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ekt.jpg",
+      "genres": [5]
+
     },
     {
       "name": "Final Fantasy VII",
@@ -43,7 +48,8 @@
       "rating_category": "T",
       "content_descriptors": ["Blood", "Fantasy Violence", "Language", "Mild Suggestive", "Themes"],
       "interactive_elements": ["No Interactive Elements"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kx2.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kx2.jpg",
+      "genres": [12, 31]
     },
     {
       "name": "Duke Nukem 3D: 20th Anniversary World Tour",
@@ -52,7 +58,8 @@
       "rating_category": "M",
       "content_descriptors": ["Blood and Gore", "Partial Nudity", "Sexual Themes", "Strong Language", "Use of Drugs", "Violence"],
       "interactive_elements": ["No Interactive Elements"],
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m75.jpg"
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m75.jpg",
+      "genres": [5, 31]
     }
   ]
 }
