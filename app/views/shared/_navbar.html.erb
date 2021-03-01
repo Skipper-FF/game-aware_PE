@@ -16,7 +16,8 @@
     </ul>
   </div>
   <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag "logo.png" %>
+  <%= image_tag "logo.svg", class: "#{request.path == root_path ? 'selected' : 'logo-disable'}
+" %>
   <% end %>
   <%= link_to games_path, class: "navbar-brand" do %>
   <i class="fas fa-search navbar-button

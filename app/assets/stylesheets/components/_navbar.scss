@@ -20,11 +20,15 @@
   }
 }
 
+.logo-disable {
+  filter: saturate(0);
+}
+
 .navbar-button {
-border-style: none;
-background-color: transparent;
-color: grey;
-font-size: 24px;
+  border-style: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 24px;
 }
 
 .navbar-icons {
