@@ -7,12 +7,12 @@
       <strong><%= review.rating %>/5</strong>
     </li>
     <% if user_signed_in? %>
-      <% if policy(user_review).update? %>
+      <% if policy(review).edit? %>
           <%= link_to edit_user_review_path(review) do  %>
           <i class="far fa-edit"></i>
         <% end %>
       <% end %>
-      <% if policy(user_review).destroy?%>
+      <% if policy(review).destroy? %>
           <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
