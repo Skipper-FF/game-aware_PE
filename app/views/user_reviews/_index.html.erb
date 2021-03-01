@@ -6,14 +6,16 @@
       <strong>Description:</strong> <%= review.description %>
       <strong><%= review.rating %>/5</strong>
     </li>
-    <% if policy(user_review).update? %>
-      <%= link_to edit_user_review_path(review) do  %>
-        <i class="far fa-edit"></i>
+    <% if user_signed_in? %>
+      <% if policy(user_review).update? %>
+          <%= link_to edit_user_review_path(review) do  %>
+          <i class="far fa-edit"></i>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if policy(user_review).destroy?%>
-      <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
-        <i class="far fa-trash-alt"></i>
+      <% if policy(user_review).destroy?%>
+          <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
