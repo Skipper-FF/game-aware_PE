@@ -1,5 +1,6 @@
 require 'httparty'
 require 'open-uri'
+require 'pry-byebug'
 
 # @search_game = nil
 # variables for ESRB
@@ -7,6 +8,7 @@ require 'open-uri'
 @pg = 1
 @games_found = 0
 @total_games = 1
+@rating_category = EsrbRatingCategory.find_by(rating: "RP")
 
 # variables for IGDB
 @client_id = '7gxcwa6ccp0u9cnegrpzwxbnczg9lr'
@@ -104,18 +106,29 @@ def search_igdb_games(query)
 end
 
 def store_to_db(igdb_game, esrb_info, game_cover)
+  puts @rating_category
   if esrb_info.nil?
-    rating_category = EsrbRatingCategory.find_by(rating: "RP")
+    puts "Entering save with no ESRB info"
+    puts @rating_category
+    puts "ok"
+    # rating_category = EsrbRatingCategory.find_by(rating: "RP")
+    p igdb_game
+    p esrb_info
     new_game = Game.new(
       name: igdb_game['name'],
       igdb_id: igdb_game['id'],
       description: igdb_game['summary'],
       rating_summary: "No ESRB rating for this game",
-      esrb_rating_category_id: rating_category.id
+      esrb_rating_category_id: 1
       )
     new_game.save!
+    puts "#{igdb_game['name']} is saved"
   else
+    puts "Entering save with ESRB info"
+    p esrb_info[:esrb_rating_category_id]
     rating_category = EsrbRatingCategory.find_by(rating: esrb_info[:esrb_rating_category_id])
+    p igdb_game
+    p esrb_info
     new_game = Game.new(
       name: igdb_game['name'],
       igdb_id: igdb_game['id'],
@@ -165,6 +178,7 @@ igdb_games = search_igdb_games(query)
 #   puts "Pas de jeu"
 # end
 igdb_games.each do |igdb_game|
+  puts "==============================="
   puts "Processing #{igdb_game['name']}"
   if Game.find_by(igdb_id: igdb_game['id']).nil?
     puts "Entering ESRB"
