@@ -3,15 +3,17 @@
   </div>
 </div>
 <div class="container">
+  <h1 class="h1-show"><%= @game.name %></h1>
   <div class="show-header">
     <%= link_to games_path do %>
       <i class="fas fa-arrow-left" id="back-arrow"></i>
     <% end %>
   </div>
-    <h1 class="h1-show"><%= @game.name %></h1>
+</div>
+<div class="container">
     <div class="show-card-game">
       <div class="show-card-game-infos">
-        <h2 class="show-game-title"> Suitable for kids (y/o) </h2>
+        <h4 class="show-game-title"> Recommended age for kids </h4>
         <div class="rating-block">
           <div class="esrb-rating">
             <button type="button" class="modal-button" data-toggle="modal" data-target="#ESRBModal">
@@ -64,9 +66,10 @@
         </div>
       </div>
     </div>
-
-
-  <hr>
+    <br>
+    <br>
+    <br>
+    <br>
   <div class="kids-recommandation">
     <% if @user %>
       <% if @user.kids.count > 0 %>

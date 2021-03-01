@@ -11,13 +11,13 @@
     }
 }
 .redbg {
-  background-color: rgb(255, 96, 96);
+  background-color: rgb(253, 239, 240);
 }
 .greenbg {
-  background-color: rgb(138, 234, 159);
+  background-color: rgb(241, 251, 245);
 }
 .orangebg {
-  background-color: rgb(255, 195, 112);
+  background-color: rgb(255, 255, 255);
 }
 
 .show-game-title {
@@ -48,11 +48,11 @@
 }
 
 #back-arrow {
-  color: #FF7130;
-  font-size: 22px;
+  color: #FFFFFF;
+  font-size: 15px;
   width: 100%;
   text-align: center;
-  padding: 5px;
+  padding: 16px;
 
 }
 
@@ -67,8 +67,6 @@
   left: 4px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  background-color: white;
 }
 
 
@@ -91,7 +89,7 @@
 
 .show-banner-img {
   background-size: cover;
-  height: 150px;
+  height: 190px;
   width: 100%;
 }
 
@@ -104,9 +102,11 @@
   // display: flex;
   align-items: center;
   margin-top: 16px;
-  background-color: white;
-  border: 1px solid #FF7130;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
   border-radius: 16px;
+  position: relative;
+  margin: -65px auto;
 
    img {
     height: 100%;
@@ -115,15 +115,15 @@
     border-radius: 16px;
    }
 
-   h2 {
+   h4 {
     font-size: 14px;
-    font-weight: bold;
     margin: 0;
     color: #FF7130;
+    margin: 10px auto;
    }
 
    p {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;

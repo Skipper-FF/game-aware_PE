@@ -21,7 +21,9 @@ class UserReviewsController < ApplicationController
     else
       flash[:notice] = 'An error has occured, please try again.'
       # render :partial => "user_reviews/new", :object => @user_review
-      render :new
+      @user = current_user
+      @rating_category = EsrbRatingCategory.find(@game.esrb_rating_category_id)
+      render "games/show"
     end
   end
 
