@@ -1,6 +1,6 @@
 <div class="container">
   <h5>Parents comments</h5>
-</div>
+
 <% @game.user_reviews.each do |review| %>
   <hr>
   <div class="index-form">
@@ -10,13 +10,14 @@
       <p><%= review.description %></p>
       <div class="rating-age-review">
         <div class="rating-review">
-          <p class="rating-user"><%= review.rating %>/5 <i class="fas fa-star"> <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></i></p>
+          <p class="rating-user"><%= review.rating %>/5 <i class="fas fa-star"> </i></p>
         </div>
         <div class="age-rating">
           <p class="recommended-age-user">Recommended age: <%= review.age %> years old</p>
         </div>
     </div>
   </div>
+</div>
   <!-- </li> -->
   <% if user_signed_in? %>
     <% if policy(review).edit? %>

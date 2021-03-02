@@ -126,42 +126,63 @@
   </div>
 <div class="esrb-infos">
   <div class="show-infos">
+    <div class="details-game">
      <details>
-      <summary>Why is it rated <%= esrb_age %>+ by ESRB ? <span class="chevron bottom"></span></summary>
+        <summary>Why is it rated <%= esrb_age %>+ by ESRB ?</summary>
 
-      <p><%= @game.rating_summary %></p>
-    </details>
-
-    <hr>
-    <details>
-      <summary>What is the <%= @rating_category.name %> rating about ? <span class="chevron bottom"></span></summary>
-      <div class="rating-category">
-      <p><%= @rating_category.description %></p>
-      <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+        <p><%= @game.rating_summary %></p>
+      </details>
     </div>
-    </details>
+    <div class="chevron-game">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
 
-    <hr>
+  <div class="show-infos">
+    <div class="details-game">
+      <details>
+        <summary>What is the <%= @rating_category.name %> rating about ? </summary>
+          <div class="rating-category">
+            <p><%= @rating_category.description %></p>
+            <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+          </div>
+      </details>
+    </div>
+    <div class="chevron-game">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
 
-    <details>
-      <summary>What could be offensive in this game ? <span class="chevron bottom"></span></summary>
-      <ul>
-        <% @game.esrb_content_descriptors.each do |descriptor| %>
-          <li><%= descriptor.name %></li>
-        <% end %>
-      </ul>
-    </details>
-
-    <hr>
-
-    <details>
-      <summary>Online features to consider <span class="chevron bottom"></span></summary>
-      <ul>
-        <% @game.esrb_interactive_elements.each do |element| %>
-          <li><%= element.name %></li>
-        <% end %>
-      </ul>
-    </details>
+  <div class="show-infos">
+    <div class="details-game">
+      <details>
+        <summary>What could be offensive in this game ? </summary>
+        <ul>
+          <% @game.esrb_content_descriptors.each do |descriptor| %>
+            <li><%= descriptor.name %></li>
+          <% end %>
+        </ul>
+      </details>
+    </div>
+    <div class="chevron-game">
+      <span class="chevron bottom"></span>
+    </div>
+  </div>
+  <div class="show-infos">
+    <div class="details-game">
+      <details>
+        <summary>Online features to consider </summary>
+        <ul>
+          <% @game.esrb_interactive_elements.each do |element| %>
+            <li><%= element.name %></li>
+          <% end %>
+        </ul>
+      </details>
+    </div>
+  <div class="chevron-game">
+      <span class="chevron bottom"></span>
+  </div>
+  </div>
   </div>
 </div>
 <br>

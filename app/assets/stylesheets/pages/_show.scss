@@ -173,8 +173,12 @@
 }
 
 .show-infos {
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   background: #F6F6F6;
+  padding: 18px 10px;
+  border-bottom: 1px solid lightgray;
 
   p {
     color: gray;
