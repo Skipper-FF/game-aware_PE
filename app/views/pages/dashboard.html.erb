@@ -7,25 +7,57 @@
     <li>
       <a href="#" class="tab-underlined" id="btn-profile">Profile</a>
      </li>
-
   </ul>
 
   <div id="dash-tab2">
   <% @user.kids.each do |kid| %>
     <div class="dashboard-kid-card">
       <div class="dashboard-kid-card-container">
-        <p id="kid-name"><%= kid.name %> </p>
-        <p id="kid-age"> <%= (Date.today - kid.birthdate).to_i/365 %> years old</p>
+        <div class="name-and-dropdown">
+          <div class="name-and-age">
+            <p id="kid-name"><%= kid.name %> </p>
+            <p id="kid-age"> <%= (Date.today - kid.birthdate).to_i/365 %> years old</p>
+          </div>
 
+          <div class="dropdown dropleft">
+            <a data-toggle="dropdown" href="#"> <i class="fas fa-ellipsis-v"></i> </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li> <%= link_to edit_kid_path(kid) do  %>
+<!--                 <i class="far fa-edit"></i>
+ -->                <span>Edit</span>
+                <% end %>
+              </li>
+              <li> <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
+<!--                 <i class="fas fa-user-times"></i>
+ -->                <span>Delete</span>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
         <hr>
         <div class="recommandations">
           <p id="recommended"> Recommended for <%= kid.name %> :</p>
-          <%= link_to edit_kid_path(kid) do  %>
-          <i class="far fa-edit"></i>
-          <% end %>
-          <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
-          <i class="fas fa-user-times"></i>
-          <% end %>
+
+          <div class="recommandation-cards">
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/12a0ed7c6bc09b73d6558c6f69ed7f5f.png)">
+              <span class="game-description">Minecraft</span>
+            </div>
+
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images-na.ssl-images-amazon.com/images/I/A15-31Y3bRL.jpg)">
+              <span class="game-description">The Legend of Zelda</span>
+
+            </div>
+
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images-na.ssl-images-amazon.com/images/I/71gtcZbRlgL.jpg)">
+              <span class="game-description">Super Mario 3D All-Stars</span>
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
     </div>

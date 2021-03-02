@@ -26,6 +26,8 @@
 
 .dashboard-container {
   background-color: #F6F6F6;
+  min-height: calc(100vh - 50px);
+  padding-bottom: 60px;
 }
 
 .dashboard-kid-card {
@@ -54,6 +56,7 @@
 
 #kid-name {
   line-height: 4px;
+  font-size: 13px;
 }
 
 #kid-age {
@@ -78,7 +81,52 @@
   text-align: center;
   background-color: #ff7334;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   position: fixed;
   width: 92%;
+  bottom: 65px;
+}
+
+.fa-ellipsis-v {
+  color: lightgray;
+}
+
+.name-and-dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-width: 0;
+
+  span {
+    color: grey;
+    font-size: 12px;
+  }
+}
+
+.recommandation-cards {
+  display: flex;
+  justify-content: space-between;
+
+  .game-card {
+    background-size: cover;
+    background-position: center;
+    height: 95px;
+    width: 96px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
 }
