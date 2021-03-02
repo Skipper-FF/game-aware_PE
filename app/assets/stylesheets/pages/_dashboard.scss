@@ -56,12 +56,12 @@
 
 #kid-name {
   line-height: 4px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 #kid-age {
   color: grey;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 4px;
 }
 
@@ -71,7 +71,7 @@
 
 #recommended {
   color: #FF7130;
-  font-size: 11px;
+  font-size: 12px;
   margin-top: -10px;
   margin-bottom: 12px;
   font-weight: lighter;
@@ -100,15 +100,17 @@
 }
 
 .dropdown-menu {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   min-width: 0;
+  border-radius: 8px;
+  line-height: 25px;
 
   span {
     color: grey;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
