@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :kids
   resources :games, only: [:index, :show] do
+    get 'search_igdb', on: :collection
     resources :user_reviews, only: [:new, :create]
   end
   resources :user_reviews, only:[:edit, :update, :destroy]
