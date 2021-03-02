@@ -16,6 +16,7 @@
       <div class="dashboard-kid-card-container">
         <p id="kid-name"><%= kid.name %> </p>
         <p id="kid-age"> <%= (Date.today - kid.birthdate).to_i/365 %> years old</p>
+
         <hr>
         <div class="recommandations">
           <p id="recommended"> Recommended for <%= kid.name %> :</p>

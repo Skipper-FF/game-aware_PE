@@ -17,6 +17,7 @@
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #FF7130;
+  color: #FF7130;
 }
 
 .toggle-display {
@@ -34,7 +35,7 @@
 }
 
 #dashboard-h4 {
-  padding: 8px;
+  padding: 6px;
   padding-top: 24px;
   font-size: 22px;
   font-weight: 600;}
