@@ -77,7 +77,7 @@
    }
 
    .show-card-game-infos {
-    padding: 12px;
+    padding: 13px;
     color: gray;
     text-align: center;
    }
@@ -122,9 +122,8 @@
 }
 
 .kid-line {
-  border-radius: 9px;
-  padding: 4px;
-  height: 28px;
+  border-radius: 8px;
+  padding: 14px;
   margin-bottom: 5px;
   margin-top: 5px;
     // p {
@@ -156,18 +155,23 @@
   margin: 8px auto;
 }
 
+.chevron.right:before {
+  left: 0;
+  transform: rotate(45deg);
+}
+
 .rating-category {
   display: flex;
   justify-content: space-between;
 }
 
 .show-infos-game-summary {
-  font-size: 12px;
+  font-size: 13px;
   background: #FFFFFF;
 
   p {
     color: gray;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: lighter;
   }
 }
@@ -175,19 +179,19 @@
 .show-infos {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   background: #F6F6F6;
   padding: 18px 10px;
   border-bottom: 1px solid lightgray;
 
   p {
     color: gray;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: lighter;
   }
 
   summary {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: normal;
   letter-spacing: 1px;
   color: gray;
@@ -208,12 +212,12 @@ details > summary::-webkit-details-marker {
   border-width: 0.25em 0.25em 0 0;
   content: '';
   display: inline-block;
-  height: 0.45em;
+  height: 8px;
   left: 0.15em;
   position: relative;
   top: 0.15em;
   transform: rotate(-45deg);
-  width: 0.45em;
+  width: 8px;
   color: gray;
 }
 

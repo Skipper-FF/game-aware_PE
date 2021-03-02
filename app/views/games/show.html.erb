@@ -81,7 +81,7 @@
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
         <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
-          <div class="kid-line
+          <div class="kid-line d-flex justify-content-between
             <% if game_aware_rating == "N/C" %>
               <%= 'orangebg' %>
             <% else %>
@@ -94,27 +94,36 @@
               <% end %>
             <% end %>
             ">
-            <p><span class="kid-reco"> <% if game_aware_rating == "N/C" %>
-              😐
-              <% else %>
-                <% if kid_age >= game_aware_rating %>
-                  <i class="far fa-thumbs-up"></i>
-                <% elsif (kid_age) < (game_aware_rating - 1)%>
-                  <i class="far fa-thumbs-down"></i>
-                <% else %>
-                  <i class="fas fa-exclamation-circle"></i>
-                <% end %>
-              <% end %>
-            </span>
-            <span class="kid-name"><%= kid.name %>, </span>
-            <span class="kid-age"> <%= kid_age %> years old > </span>
-           </p>
-          </div>
+
+                <div class="kid-ratings">
+                  <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
+                  😐
+                    <% else %>
+                      <% if kid_age >= game_aware_rating %>
+                        <i class="far fa-thumbs-up"></i>
+                      <% elsif (kid_age) < (game_aware_rating - 1)%>
+                        <i class="far fa-thumbs-down"></i>
+                      <% else %>
+                        <i class="fas fa-exclamation-circle"></i>
+                      <% end %>
+                    <% end %>
+                  </span>
+                  <span class="kid-name"><%= kid.name %>, </span>
+                  <span class="kid-age"> <%= kid_age %> years old
+                 </span>
+                </div>
+
+                <div class="chevron-kids">
+                  <%= link_to dashboard_path(@user) do %>
+                  <span class="chevron right" ></span>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to("+ Add a kid", new_kid_path) %>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to("+ Add a kid", new_kid_path) %>
-      <% end %>
-    <% end %>
   </div>
 
 
