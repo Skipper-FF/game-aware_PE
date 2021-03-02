@@ -36,6 +36,7 @@
             <p> <span>ESRB</span> </p> <p> <%= esrb_age == "N/C" %></p>
           <% end %>
         </div>
+        <hr class="vertical-line">
         <div class="parents-rating">
           <button type="button" class="modal-button" data-toggle="modal" data-target="#Parentsmodal">
            <i class="fas fa-info-circle"></i>
@@ -52,6 +53,7 @@
             <p> No parents reviews </p>
           <% end %>
         </div>
+        <hr class="vertical-line">
         <div class="game-aware-rating">
           <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
            <i class="fas fa-info-circle"></i>
@@ -92,9 +94,7 @@
               <% end %>
             <% end %>
             ">
-            <p> <span class="kid-name"><%= kid.name %> </span>
-            <span class="kid-age"> Age : <%= kid_age %> </span>
-            <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
+            <p><span class="kid-reco"> <% if game_aware_rating == "N/C" %>
               😐
               <% else %>
                 <% if kid_age >= game_aware_rating %>
@@ -105,7 +105,10 @@
                   <i class="fas fa-exclamation-circle"></i>
                 <% end %>
               <% end %>
-            </span> </p>
+            </span>
+            <span class="kid-name"><%= kid.name %>, </span>
+            <span class="kid-age"> <%= kid_age %> years old > </span>
+           </p>
           </div>
         <% end %>
       <% else %>

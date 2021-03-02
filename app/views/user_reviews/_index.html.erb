@@ -1,20 +1,18 @@
 <div class="container">
   <div class="index-form">
     <ul>
+      <div class="index-list-form">
         <% @game.user_reviews.each do |review| %>
-        <div class="index-list-form">
-        <li>
           <p>Recommended age: <%= review.age %></p>
           <p>Title: <%= review.title%></p>
           <p>Description: <%= review.description %></p>
           <p><%= review.rating %>/5</p>
-        </li>
         <% if user_signed_in? %>
           <% if policy(review).edit? %>
               <%= link_to edit_user_review_path(review) do  %>
               <i class="far fa-edit"></i>
-            <% end %>
           <% end %>
+        <% end %>
           <% if policy(review).destroy? %>
               <%= link_to user_review_path(review), method: :delete, data: { confirm: "Remove review?" } do %>
               <i class="far fa-trash-alt"></i>
@@ -22,8 +20,8 @@
           <% end %>
         <% end %>
       <% end %>
+      </div>
     </ul>
-  </div>
   </div>
 </div>
 
