@@ -94,36 +94,35 @@
               <% end %>
             <% end %>
             ">
-
-                <div class="kid-ratings">
-                  <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
-                  😐
-                    <% else %>
-                      <% if kid_age >= game_aware_rating %>
-                        <i class="far fa-thumbs-up"></i>
-                      <% elsif (kid_age) < (game_aware_rating - 1)%>
-                        <i class="far fa-thumbs-down"></i>
-                      <% else %>
-                        <i class="fas fa-exclamation-circle"></i>
-                      <% end %>
-                    <% end %>
-                  </span>
-                  <span class="kid-name"><%= kid.name %>, </span>
-                  <span class="kid-age"> <%= kid_age %> years old
-                 </span>
-                </div>
-
-                <div class="chevron-kids">
-                  <%= link_to dashboard_path(@user) do %>
-                  <span class="chevron right" ></span>
+            <div class="kid-ratings">
+              <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
+              😐
+                <% else %>
+                  <% if kid_age >= game_aware_rating %>
+                    <i class="far fa-thumbs-up"></i>
+                  <% elsif (kid_age) < (game_aware_rating - 1)%>
+                    <i class="far fa-thumbs-down"></i>
+                  <% else %>
+                    <i class="fas fa-exclamation-circle"></i>
                   <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <%= link_to("+ Add a kid", new_kid_path) %>
-          <% end %>
+                <% end %>
+              </span>
+              <span class="kid-name"><%= kid.name %>, </span>
+              <span class="kid-age"> <%= kid_age %> years old
+             </span>
+            </div>
+
+            <div class="chevron-kids">
+              <%= link_to dashboard_path(@user) do %>
+              <span class="chevron right" ></span>
+              <% end %>
+            </div>
+          </div>
         <% end %>
+      <% else %>
+        <%= link_to("+ Add a kid", new_kid_path) %>
+      <% end %>
+    <% end %>
   </div>
 
 
@@ -133,69 +132,69 @@
     <h2 id="show-infos-h2"></h2>
     <p><%= @game.description %></p>
   </div>
-<div class="esrb-infos">
-  <div class="show-infos">
-    <div class="details-game">
-     <details>
-        <summary>Why is it rated <%= esrb_age %>+ by ESRB ?</summary>
+  <div class="esrb-infos">
+    <div class="show-infos">
+      <div class="details-game">
+       <details>
+          <summary>Why is it rated <%= esrb_age %>+ by ESRB ?</summary>
 
-        <p><%= @game.rating_summary %></p>
-      </details>
+          <p><%= @game.rating_summary %></p>
+        </details>
+      </div>
+      <div class="chevron-game">
+        <span class="chevron bottom"></span>
+      </div>
     </div>
-    <div class="chevron-game">
-      <span class="chevron bottom"></span>
-    </div>
-  </div>
 
-  <div class="show-infos">
-    <div class="details-game">
-      <details>
-        <summary>What is the <%= @rating_category.name %> rating about ? </summary>
-          <div class="rating-category">
-            <p><%= @rating_category.description %></p>
-            <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
-          </div>
-      </details>
+    <div class="show-infos">
+      <div class="details-game">
+        <details>
+          <summary>What is the <%= @rating_category.name %> rating about ? </summary>
+            <div class="rating-category">
+              <p><%= @rating_category.description %></p>
+              <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>
+            </div>
+        </details>
+      </div>
+      <div class="chevron-game">
+        <span class="chevron bottom"></span>
+      </div>
     </div>
-    <div class="chevron-game">
-      <span class="chevron bottom"></span>
-    </div>
-  </div>
 
-  <div class="show-infos">
-    <div class="details-game">
-      <details>
-        <summary>What could be offensive in this game ? </summary>
-        <ul>
-          <% @game.esrb_content_descriptors.each do |descriptor| %>
-            <li><%= descriptor.name %></li>
-          <% end %>
-        </ul>
-      </details>
+    <div class="show-infos">
+      <div class="details-game">
+        <details>
+          <summary>What could be offensive in this game ? </summary>
+          <ul>
+            <% @game.esrb_content_descriptors.each do |descriptor| %>
+              <li><%= descriptor.name %></li>
+            <% end %>
+          </ul>
+        </details>
+      </div>
+      <div class="chevron-game">
+        <span class="chevron bottom"></span>
+      </div>
     </div>
+    <div class="show-infos">
+      <div class="details-game">
+        <details>
+          <summary>Online features to consider </summary>
+          <ul>
+            <% @game.esrb_interactive_elements.each do |element| %>
+              <li><%= element.name %></li>
+            <% end %>
+          </ul>
+        </details>
+      </div>
     <div class="chevron-game">
-      <span class="chevron bottom"></span>
+        <span class="chevron bottom"></span>
     </div>
-  </div>
-  <div class="show-infos">
-    <div class="details-game">
-      <details>
-        <summary>Online features to consider </summary>
-        <ul>
-          <% @game.esrb_interactive_elements.each do |element| %>
-            <li><%= element.name %></li>
-          <% end %>
-        </ul>
-      </details>
     </div>
-  <div class="chevron-game">
-      <span class="chevron bottom"></span>
-  </div>
-  </div>
   </div>
 </div>
-<br>
-<br>
+  <br>
+  <br>
 <!-- <div class="container"> -->
     <%= render "user_reviews/index", user_review: @user_review %>
   <hr>
