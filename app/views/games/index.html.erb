@@ -5,15 +5,11 @@
 </div>
 <div class="container">
   <div class="search-homepage">
-    <%= link_to games_path do %>
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <%= simple_form_for :search, url: games_path, method: :get do |f| %>
       <div class="search-form-control form-group rounded">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-search">
-          <i class="fas fa-search"></i> Search
-        </button>
+        <%= f.input :query, class:"form-control string required", id:"search_query", label: false %>
+        <%= f.submit "Search", class:"btn btn-search" %>
       </div>
-      <% end %>
     <% end %>
   </div>
 </div>
@@ -23,10 +19,10 @@
   <div class="index-text">
   <p><em>Search results</em></p>
   </div>
-  <% @game.each do |game| %>
+  <% @games.each do |game| %>
     <%= link_to game_path(game), class: "index-links" do %>
       <div class="index-card-game">
-        <%= cl_image_tag game.photo.key %>
+        <%= image_tag game.cover_url %>
         <div class="index-card-game-infos">
          <h2> <%= game.name %> </h2>
          <p> <%= game.description.truncate_words(14) %></p>
