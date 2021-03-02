@@ -31,13 +31,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'pundit'
 gem 'faker'
-gem 'cloudinary', '~> 1.16.0'
+gem 'pg_search', '~> 2.3.0'
+gem 'httparty'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'net-http'
-gem 'httparty'
 
 group :development, :test do
   gem 'pry-byebug'
