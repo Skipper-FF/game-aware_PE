@@ -40,22 +40,30 @@
           <p id="recommended"> Recommended for <%= kid.name %> :</p>
 
           <div class="recommandation-cards">
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/12a0ed7c6bc09b73d6558c6f69ed7f5f.png)">
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/12a0ed7c6bc09b73d6558c6f69ed7f5f.png)">
               <span class="game-description">Minecraft</span>
+              <div class="star-rating">
+                <i class="fas fa-star"></i>
+                <span class="game-rating">4,5</span>
+              </div>
             </div>
 
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images-na.ssl-images-amazon.com/images/I/A15-31Y3bRL.jpg)">
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images-na.ssl-images-amazon.com/images/I/A15-31Y3bRL.jpg)">
               <span class="game-description">The Legend of Zelda</span>
-
+              <div class="star-rating">
+                <i class="fas fa-star"></i>
+                <span class="game-rating">4,7</span>
+              </div>
             </div>
 
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images-na.ssl-images-amazon.com/images/I/71gtcZbRlgL.jpg)">
-              <span class="game-description">Super Mario 3D All-Stars</span>
+            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images-na.ssl-images-amazon.com/images/I/71gtcZbRlgL.jpg)">
+              <span class="game-description">Super Mario</span>
+              <div class="star-rating">
+                <i class="fas fa-star"></i>
+                <span class="game-rating">4,3</span>
+              </div>
             </div>
           </div>
-
-
-
 
 
         </div>
@@ -66,10 +74,25 @@
   <%= link_to "Add a kid +", new_kid_path, class: "add-kid-button" %>
 
   <div class="toggle-display" id="dash-tab1">
-    <h2>Profile</h2>
-      <p>Username : <%= @user.username %></p>
-      <p>Email : <%= @user.email %></p>
-      <p> Member since : <%= @user.created_at.strftime("%d-%B-%Y") %> </p>
+    <div class="dashboard-kid-card">
+      <div class="dashboard-kid-card-container">
+        <div class="name-and-dropdown">
+          <div class="name-and-age">
+            <p id="username"><%= @user.username %></p>
+            <hr>
+            <span id="review-count"><%= pluralize @user.user_reviews.count, "review" %> </span>
+            <p id="email"><%= @user.email %></p>
+            <p id="membership"> Game-Aware member since <%= @user.created_at.strftime("%B %Y") %></p>
+          </div>
+          <div class="avatar-icon">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <p> Number of reviews : <%= @user.user_reviews.count %></p>
+
+
+
 </div>
