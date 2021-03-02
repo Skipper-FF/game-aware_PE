@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .gameawarelogo {
-  width: 100px;
+  width: 130px;
   position: relative;
   left: 125px;
   top: 50px;
@@ -41,8 +41,13 @@
   text-align: center;
 }
 
+.card-category h6 {
+  font-size: 13px;
+}
+
 .card-category p {
-  font-size: 15px;
+  text-decoration: underline;
+  font-size: 12px;
 }
 
 .card-links:hover{

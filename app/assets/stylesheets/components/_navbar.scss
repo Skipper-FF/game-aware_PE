@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   bottom:  0;
-  background-color: white;
+  background-color: $grischaud;
   padding-top: 2px;
   padding-bottom: 2px;
 
@@ -20,14 +20,26 @@
   }
 }
 
-#navbar-button {
-border-style: none;
-background-color: transparent;
-color: #FF7130;
-font-size: 24px;
+.logo-disable {
+  filter: saturate(0);
 }
 
-#navbar-icons {
+.navbar-button {
+  border-style: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 24px;
+}
+
+.navbar-icons {
   color: #FF7130;
-  font-size: 22px;
+  font-size: 24px;
+}
+
+.selected {
+  color: #FF7130
+}
+
+.grey-logo {
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%);
 }
