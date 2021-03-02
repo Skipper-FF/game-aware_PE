@@ -11,12 +11,12 @@ Kid.destroy_all
 User.destroy_all
 GameInteractiveElement.destroy_all
 GameContentDescriptor.destroy_all
-Game.destroy_all
-EsrbRatingCategory.destroy_all
 EsrbContentDescriptor.destroy_all
 EsrbInteractiveElement.destroy_all
 GameGenre.destroy_all
 Genre.destroy_all
+Game.destroy_all
+EsrbRatingCategory.destroy_all
 puts 'Database cleaned !'
 puts''
 
@@ -29,6 +29,7 @@ esrb['rating_categories'].each do | rating_category |
   category = EsrbRatingCategory.new(
     name: rating_category['name'],
     rating: rating_category['rating'],
+    age: rating_category['age'],
     description: rating_category['description']
     )
   category.save!
