@@ -127,14 +127,14 @@
 <div class="esrb-infos">
   <div class="show-infos">
      <details>
-      <summary>Why is it rated <strong> <%= esrb_age %>+ </strong> by ESRB ? <span class="chevron bottom"></span></summary>
+      <summary>Why is it rated <%= esrb_age %>+ by ESRB ? <span class="chevron bottom"></span></summary>
 
       <p><%= @game.rating_summary %></p>
     </details>
 
     <hr>
     <details>
-      <summary>What is the <strong> <%= @rating_category.name %> </strong> rating about ? <span class="chevron bottom"></span></summary>
+      <summary>What is the <%= @rating_category.name %> rating about ? <span class="chevron bottom"></span></summary>
       <div class="rating-category">
       <p><%= @rating_category.description %></p>
       <%= image_tag "esrb/#{@rating_category.rating}.svg", height: '64', id: "game-img"%>

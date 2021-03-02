@@ -183,9 +183,10 @@
   }
 
   summary {
-    font-size: 14px;
-    font-weight: lighter;
-    letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: gray;
   }
 
 
@@ -220,12 +221,6 @@ details > summary::-webkit-details-marker {
 
 #game-img {
   padding-left: 8px;
-}
-
-h5 {
-  color: #FF7130;
-  font-weight: lighter;
-  font-size: 14px;
 }
 
 .modal-button {
