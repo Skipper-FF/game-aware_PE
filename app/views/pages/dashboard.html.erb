@@ -10,68 +10,59 @@
   </ul>
 
   <div id="dash-tab2">
-  <% @user.kids.each do |kid| %>
-    <div class="dashboard-kid-card">
-      <div class="dashboard-kid-card-container">
-        <div class="name-and-dropdown">
-          <div class="name-and-age">
-            <p id="kid-name"><%= kid.name %> </p>
-            <p id="kid-age"> <%= (Date.today - kid.birthdate).to_i/365 %> years old</p>
-          </div>
+    <% @user.kids.each do |kid| %>
+      <div class="dashboard-kid-card">
+        <div class="dashboard-kid-card-container">
+          <div class="name-and-dropdown">
+            <div class="name-and-age">
+              <p id="kid-name"><%= kid.name %> </p>
+              <p id="kid-age"> <%= kid.age %> years old</p>
+            </div>
 
-          <div class="dropdown dropleft">
-            <a data-toggle="dropdown" href="#"> <i class="fas fa-ellipsis-v"></i> </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li> <%= link_to edit_kid_path(kid) do  %>
-<!--                 <i class="far fa-edit"></i>
- -->                <span>Edit</span>
+            <div class="dropdown dropleft">
+              <a data-toggle="dropdown" href="#"> <i class="fas fa-ellipsis-v"></i> </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li> <%= link_to edit_kid_path(kid) do  %>
+                  <span>Edit</span>
+                  <% end %>
+                </li>
+                <li> <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
+                  <span>Delete</span>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <div class="recommandations">
+            <p id="recommended"> Recommended for <%= kid.name %> :</p>
+            <div class="recommandation-cards">
+              <% kid.recommended_games.each do |game| %>
+                <%= link_to game_path(game), class: "index-links" do %>
+                  <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= game.cover_url %>)">
+                    <span class="game-description"><%= game.name %></span>
+                    <% if game.user_reviews.count > 0 %>
+                      <% sum = 0 %>
+                      <% game.user_reviews.each do |review| %>
+                        <% sum += review.rating %>
+                      <% end %>
+                      <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="game-rating"><%= average_p_note = (sum / game.user_reviews.count).to_f %></span>
+                      </div>
+                    <% end %>
+                  </div>
                 <% end %>
-              </li>
-              <li> <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
-<!--                 <i class="fas fa-user-times"></i>
- -->                <span>Delete</span>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-        <div class="recommandations">
-          <p id="recommended"> Recommended for <%= kid.name %> :</p>
-
-          <div class="recommandation-cards">
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/12a0ed7c6bc09b73d6558c6f69ed7f5f.png)">
-              <span class="game-description">Minecraft</span>
-              <div class="star-rating">
-                <i class="fas fa-star"></i>
-                <span class="game-rating">4,5</span>
-              </div>
-            </div>
-
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images-na.ssl-images-amazon.com/images/I/A15-31Y3bRL.jpg)">
-              <span class="game-description">The Legend of Zelda</span>
-              <div class="star-rating">
-                <i class="fas fa-star"></i>
-                <span class="game-rating">4,7</span>
-              </div>
-            </div>
-
-            <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images-na.ssl-images-amazon.com/images/I/71gtcZbRlgL.jpg)">
-              <span class="game-description">Super Mario</span>
-              <div class="star-rating">
-                <i class="fas fa-star"></i>
-                <span class="game-rating">4,3</span>
-              </div>
+              <% end %>
             </div>
           </div>
-
-
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
-  <%= link_to "Add a kid +", new_kid_path, class: "add-kid-button" %>
+
+ <%= link_to "Add a kid +", new_kid_path, class: "add-kid-button" %>
+
 
   <div class="toggle-display" id="dash-tab1">
     <div class="dashboard-kid-card">
