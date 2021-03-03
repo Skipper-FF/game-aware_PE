@@ -1,60 +1,88 @@
-<div class="container">
-  <h1>dashboard</h1>
+<div class="container dashboard-container">
+  <h4 id="dashboard-h4">Your dashboard</h4>
     <ul class="list-inline tabs-underlined">
      <li>
-       <a href="#" class="tab-underlined active" id="btn-kids">Your Kids </a>
+       <a href="#" class="tab-underlined active" id="btn-kids">Kids </a>
     </li>
     <li>
-      <a href="#" class="tab-underlined" id="btn-profile">Your Profile</a>
+      <a href="#" class="tab-underlined" id="btn-profile">Profile</a>
      </li>
-
   </ul>
 
   <div id="dash-tab2">
-  <h2> Your Kids </h2>
-  <% @user.kids.each do |kid| %>
-    <p> Name : <%= kid.name %> </p>
-    <p> Age : <%= kid.age %></p>
-    <div class="recommandations">
-        <% kid.recommended_games.each do |game| %>
-          <%= link_to game_path(game), class: "index-links" do %>
-            <div class="index-card-game">
-              <%= cl_image_tag game.photo.key %>
-              <div class="index-card-game-infos">
-               <h2> <%= game.name %> </h2>
-               <p> <%= game.description.truncate_words(14) %></p>
-               <% if game.user_reviews.count > 0 %>
-                <% sum = 0 %>
-                <% game.user_reviews.each do |review| %>
-                <% sum += review.rating %>
-                <% end %>
-                <p><%= average_p_note = (sum / game.user_reviews.count).to_f %> ⭐️</p>
-                <% end %>
-              </div>
+    <% @user.kids.each do |kid| %>
+      <div class="dashboard-kid-card">
+        <div class="dashboard-kid-card-container">
+          <div class="name-and-dropdown">
+            <div class="name-and-age">
+              <p id="kid-name"><%= kid.name %> </p>
+              <p id="kid-age"> <%= kid.age %> years old</p>
             </div>
-          <% end %>
-        <% end %>
-    </div>
-    <%= link_to edit_kid_path(kid) do  %>
-    <i class="far fa-edit"></i>
+
+            <div class="dropdown dropleft">
+              <a data-toggle="dropdown" href="#"> <i class="fas fa-ellipsis-v"></i> </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li> <%= link_to edit_kid_path(kid) do  %>
+                  <span>Edit</span>
+                  <% end %>
+                </li>
+                <li> <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
+                  <span>Delete</span>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <div class="recommandations">
+            <p id="recommended"> Recommended for <%= kid.name %> :</p>
+            <div class="recommandation-cards">
+              <% kid.recommended_games.each do |game| %>
+                <%= link_to game_path(game), class: "index-links" do %>
+                  <div class="game-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= game.cover_url %>)">
+                    <span class="game-description"><%= game.name %></span>
+                    <% if game.user_reviews.count > 0 %>
+                      <% sum = 0 %>
+                      <% game.user_reviews.each do |review| %>
+                        <% sum += review.rating %>
+                      <% end %>
+                      <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="game-rating"><%= average_p_note = (sum / game.user_reviews.count).to_f %></span>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-    <%= link_to kid_path(kid), method: :delete, data: { confirm: "Delete #{kid.name}?" } do %>
-    <i class="fas fa-user-times"></i>
-    <% end %>
-    <hr>
-  <% end %>
-    <br>
-  <%= link_to("+ Add a kid", new_kid_path) %>
   </div>
+
+ <%= link_to "Add a kid +", new_kid_path, class: "add-kid-button" %>
+
 
   <div class="toggle-display" id="dash-tab1">
-    <h2>Your Profile</h2>
-      <p>Username : <%= @user.username %></p>
-      <p>Email : <%= @user.email %></p>
-      <p> Member since : <%= @user.created_at.strftime("%d-%B-%Y") %> </p>
-
-      <p> Number of reviews : <%= @user.user_reviews.count %></p>
+    <div class="dashboard-kid-card">
+      <div class="dashboard-kid-card-container">
+        <div class="name-and-dropdown">
+          <div class="name-and-age">
+            <p id="username"><%= @user.username %></p>
+            <hr>
+            <span id="review-count"><%= pluralize @user.user_reviews.count, "review" %> </span>
+            <p id="email"><%= @user.email %></p>
+            <p id="membership"> Game-Aware member since <%= @user.created_at.strftime("%B %Y") %></p>
+          </div>
+          <div class="avatar-icon">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 
 
 

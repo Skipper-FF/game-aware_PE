@@ -1,6 +1,7 @@
 .tabs-underlined {
   display: flex;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .tabs-underlined .tab-underlined {
@@ -15,9 +16,167 @@
 
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
-  border-bottom: 3px solid #555555;
+  border-bottom: 3px solid #FF7130;
+  color: #FF7130;
 }
 
 .toggle-display {
   display: none;
 }
+
+.dashboard-container {
+  background-color: #F6F6F6;
+  min-height: calc(100vh - 50px);
+  padding-bottom: 60px;
+}
+
+.dashboard-kid-card {
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+#dashboard-h4 {
+  padding: 6px;
+  padding-top: 24px;
+  font-size: 22px;
+  font-weight: 600;}
+
+.dashboard-container {
+
+  h4 {
+    color: #4F4F4F;
+  }
+
+  .dashboard-kid-card-container {
+    padding: 16px;
+    padding-top: 24px;
+  }
+}
+
+#kid-name {
+  line-height: 4px;
+  font-size: 14px;
+}
+
+#kid-age {
+  color: grey;
+  font-size: 13px;
+  line-height: 4px;
+}
+
+.recommandations {
+
+}
+
+#recommended {
+  color: #FF7130;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 12px;
+  font-weight: lighter;
+}
+
+.add-kid-button {
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  background-color: #ff7334;
+  color: white;
+  border-radius: 8px;
+  position: fixed;
+  width: 92%;
+  bottom: 65px;
+}
+
+.fa-ellipsis-v {
+  color: lightgray;
+}
+
+.name-and-dropdown {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -15px;
+}
+
+.dropdown-menu {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-width: 0;
+  border-radius: 8px;
+  line-height: 25px;
+
+  span {
+    color: grey;
+    font-size: 14px;
+  }
+}
+
+.recommandation-cards {
+  display: flex;
+  justify-content: space-between;
+
+  .game-card {
+    background-size: cover;
+    background-position: center;
+    height: 95px;
+    width: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    .game-rating {
+      font-size: 11px;
+      font-weight: 300;
+    }
+
+    .fa-star {
+      font-size: 8px;
+    }
+
+    .star-rating {
+
+    }
+  }
+}
+
+#username {
+  font-size: 18px;
+}
+
+#membership {
+  color: grey;
+  font-size: 12px;
+}
+
+#email {
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+#review-count {
+  color: #FF7130;
+  font-size: 12px;
+  background: #FFF1EA;
+  border-radius: 6px;
+  padding: 3px 12px;
+}
+
+.fa-user-circle {
+  color: grey;
+  font-size: 24px;
+}
+
+

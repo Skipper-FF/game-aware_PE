@@ -28,7 +28,7 @@ class ScraperService
         unless igdb_game['alternative_names'].nil?
           alt_names = ""
           igdb_game['alternative_names'].each do |alt_id|
-            alt_names << "#{search_igd_alternative_names(alt_id)[0]['name']}, "
+            alt_names << "#{search_igd_alternative_names(alt_id, access_token)[0]['name']}, "
           end
         end
         store_to_db(igdb_game, esrb_info, game_cover, alt_names)
