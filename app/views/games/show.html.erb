@@ -128,7 +128,7 @@
           </div>
         <% end %>
       <% else %>
-        <%= link_to("+ Add a kid", new_kid_path) %>
+        <%= link_to "+ Add a kid", new_kid_path, class: "add-kid-show" %>
       <% end %>
     <% end %>
   </div>
@@ -173,8 +173,9 @@
         <details>
           <summary>What could be offensive in this game ? </summary>
           <ul>
+            <br>
             <% @game.esrb_content_descriptors.each do |descriptor| %>
-              <li><%= descriptor.name %></li>
+              <li id="offensive-list"><%= descriptor.name %></li>
             <% end %>
           </ul>
         </details>
@@ -216,13 +217,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ESRB</h5>
+        <h5 class="modal-title" id="exampleModalLabel">ESRB rating</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ESRB is the abbreviation for <em><strong>E</strong>ntertainment <strong>S</strong>oftware <strong>R</strong>ating <strong>B</strong>oard</em>, a self-regulatory body for the interactive entertainment software industry established in 1994 by the Entertainment Software Association (ESA). ESRB independently applies and enforces ratings, advertising guidelines, and online privacy principles adopted by the computer and video game industry.
+        <p>ESRB is the abbreviation for <em><strong>E</strong>ntertainment <strong>S</strong>oftware <strong>R</strong>ating <strong>B</strong>oard</em>, a self-regulatory body for the interactive entertainment software industry established in 1994 by the Entertainment Software Association (ESA).</p>
+        <p>ESRB independently applies and enforces ratings, advertising guidelines, and online privacy principles adopted by the computer and video game industry.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -235,13 +237,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Game-Aware</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Game-Aware rating</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Game-Aware takes both the ESRB rating as well as the parents rating to calculate the Game-Aware age recommendation. If no parents reviews are available for a game, the Game-Aware age recommandation is identical to the ESRB age recommandation.
+        <p>Game-Aware takes both the ESRB rating as well as the parents rating to calculate the Game-Aware age recommendation.</p>
+        <p>If no parents reviews are available for a game, the Game-Aware age recommandation is identical to the ESRB age recommandation.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -254,13 +257,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Parents</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Parents rating</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Parents
+        <p>Based on
+        <%= pluralize @game.user_reviews.count, "parent review" %>. </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
