@@ -14,5 +14,5 @@ class Game < ApplicationRecord
   has_many :user_reviews, dependent: :destroy
   has_many :game_genres, dependent: :destroy
   has_many :genres, through: :game_genres
-  belongs_to :esrb_rating_category
+  belongs_to :esrb_rating_category, optional: true
 end
