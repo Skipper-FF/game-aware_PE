@@ -227,9 +227,19 @@ details > summary::-webkit-details-marker {
   transform: rotate(135deg);
 }
 
-
+#offensive-list {
+  color: gray;
+}
 #game-img {
   padding-left: 8px;
+}
+
+.add-kid-show {
+  color: #FF7130;
+  font-size: 16px;
+  background: #FFF1EA;
+  border-radius: 6px;
+  padding: 3px 12px;
 }
 
 .modal-button {
