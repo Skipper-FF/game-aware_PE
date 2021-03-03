@@ -22,17 +22,17 @@
           </button>
           <% if @rating_category.name == "Mature 17+"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 17 %> years old</p>
-            <% elsif @rating_category.name == "Everyone"%>
+          <% elsif @rating_category.name == "Everyone"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 3 %> years old</p>
-            <% elsif @rating_category.name == "Rating Pending"%>
+          <% elsif @rating_category.name == "Rating Pending"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = "N/C" %></p>
-            <% elsif @rating_category.name == "Everyone 10+"%>
+          <% elsif @rating_category.name == "Everyone 10+"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 10 %> years old</p>
-            <% elsif @rating_category.name == "Adults Only 18+"%>
+          <% elsif @rating_category.name == "Adults Only 18+"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 18 %> years old</p>
-            <% elsif @rating_category.name == "Teen"%>
+          <% elsif @rating_category.name == "Teen"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 13 %> years old</p>
-            <% else %>
+          <% else %>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age == "N/C" %></p>
           <% end %>
         </div>
@@ -44,9 +44,10 @@
           <% if @game.user_reviews.count > 0 %>
             <% sum = 0 %>
             <% @game.user_reviews.each do |review| %>
-            <% sum += review.age %>
+              <% sum += review.age %>
             <% end %>
-            <p><span>Parents</span> </p> <p><%= average_p_rating = sum / @game.user_reviews.count %> years old</p>
+            <p><span>Parents</span> </p>
+            <p><%= average_p_rating = sum / @game.user_reviews.count %> years old</p>
 
           <% else %>
             <% average_p_rating = 0 %>
@@ -65,20 +66,22 @@
             <p> N/C </p>
           <% elsif esrb_age == "N/C" %>
             <%= game_aware_rating = average_p_rating  %>
-            <% elsif average_p_rating == 0 %>
-            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = esrb_age %> years old</p>
-            <% else %>
-              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %> years old</p>
-            <% end %>
-          </div>
+          <% elsif average_p_rating == 0 %>
+            <p><span>Game-Aware</span> </p>
+            <p><%= game_aware_rating = esrb_age %> years old</p>
+          <% else %>
+            <p><span>Game-Aware</span> </p>
+            <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %> years old</p>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
   <div class="kids-recommandation">
@@ -191,20 +194,20 @@
           </ul>
         </details>
       </div>
-    <div class="chevron-game">
+      <div class="chevron-game">
         <span class="chevron bottom"></span>
+      </div>
     </div>
   </div>
-
   <br>
   <br>
 
-<div class="container">
-  <%= render "user_reviews/index", user_review: @user_review %>
-<hr>
-  <%= render ("user_reviews/new"), user_review: @user_review %>
+  <div class="container">
+    <%= render "user_reviews/index", user_review: @user_review %>
+    <hr>
+    <%= render ("user_reviews/new"), user_review: @user_review %>
+  </div>
 </div>
-
 
 
 
