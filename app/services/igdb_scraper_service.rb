@@ -16,7 +16,7 @@ class IgdbScraperService
     igdb_games = search_igdb_games
     return if igdb_games == ""
 
-    igdb_games.reject! { |game| game.key?('parent_game') }
+    # igdb_games.reject! { |game| game.key?('parent_game') }
     igdb_games.each do |igdb_game|
       if Game.find_by(igdb_id: igdb_game['id']).nil?
         game_cover = [{}]
@@ -33,6 +33,7 @@ class IgdbScraperService
         store_to_db(igdb_game, game_cover, alt_names)
       end
     end
+    revoke_token
   end
 
   private
@@ -49,6 +50,16 @@ class IgdbScraperService
     JSON.parse(response.body)
   end
 
+  def revoke_token
+    options = {
+      query: {
+        "client_id": @client_id,
+        "token": @access_token
+      }
+    }
+    HTTParty.post('https://id.twitch.tv/oauth2/revoke', options)
+  end
+
   def httparty_options(body)
     {
       headers: {
@@ -62,7 +73,11 @@ class IgdbScraperService
   def search_igdb_games
     api_path = '/games'
     api_url = @igdb_api_endpoint + api_path
-    body = "fields name, id, summary, cover, alternative_names, parent_game; search *\"#{@query}\"*; limit 50;"
+    body = "fields name,
+            id, summary, cover, alternative_names;
+            search *\"#{@query}\"*;
+            where version_parent = null & parent_game = null;
+            limit 50;"
     options = httparty_options(body)
     response = HTTParty.post(api_url, options)
     return "" if response.code != 200
@@ -111,7 +126,7 @@ class IgdbScraperService
     if game_cover[0]['url'].nil? || game_cover[0].empty?
       new_game.cover_url = "https://images.igdb.com/igdb/image/upload/t_cover_big/nocover_qhhlj6.jpg"
     else
-      new_game.cover_url = "https:#{game_cover[0]['url']}"
+      new_game.cover_url = "https:#{game_cover[0]['url']}".sub('thumb', '720p')
     end
     new_game.save!
   end

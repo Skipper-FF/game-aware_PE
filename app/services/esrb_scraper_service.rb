@@ -29,7 +29,7 @@ class EsrbScraperService
     else
       esrb_game = {
         esrb_id: results['games'][0]['certificate'],
-        rating_summary: results['games'][0]['synopsis'],
+        rating_summary: results['games'][0]['synopsis'].remove('&lt;', 'P&gt;', '/P&gt;', '/I&gt;', 'I&gt;').sub('&nbsp;', ' '),
         esrb_rating_category_id: results['games'][0]['rating'],
         esrb_content_descriptors: results['games'][0]['descriptors'].split(",").map(&:strip),
         esrb_interactive_elements: results['games'][0]['Online_Notice'].split("&lt;br /&gt;").map(&:strip)
