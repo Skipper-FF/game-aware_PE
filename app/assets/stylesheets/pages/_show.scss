@@ -1,76 +1,22 @@
-.kid-line {
-  border-radius: 9px;
-  padding: 4px;
-  height: 28px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-    p {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    }
-}
-.redbg {
-  background-color: rgb(255, 96, 96);
-}
-.greenbg {
-  background-color: rgb(138, 234, 159);
-}
-.orangebg {
-  background-color: rgb(255, 195, 112);
-}
-
-.show-game-title {
-  text-align: center;
-  padding-bottom: 8px;
-}
-.rating-block {
-  display: flex;
-  justify-content: space-evenly;
-  p {
-    text-align: center;
-    span {
-      font-weight: bold;
-      color: black;
-    }
-  }
-}
-.esrb-rating {
-  // border-right: 1px solid grey;
-  padding: 3px;
-}
-.parents-rating {
-  // border-right: 1px solid grey;
-  padding: 3px;
-}
-.game-aware-rating {
-  padding: 3px;
-}
-
 #back-arrow {
-  color: #FF7130;
-  font-size: 22px;
+  color: #FFFFFF;
+  font-size: 15px;
   width: 100%;
   text-align: center;
-  padding: 5px;
+  padding: 16px;
 
 }
 
-.rating-category {
-  display: flex;
-  justify-content: space-between;
+.show-banner {
+  background-size: contain;
+  position: relative;
 }
 
-.show-header {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: white;
+.show-banner-img {
+  background-size: cover;
+  width: 100%;
+  height: 200px;
 }
-
 
 .h1-show {
   font-size: 24px;
@@ -84,15 +30,13 @@
   color: white;
 
 }
-.show-banner {
-  background-size: contain;
-  position: relative;
-}
 
-.show-banner-img {
-  background-size: cover;
-  height: 150px;
-  width: 100%;
+.show-header {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  height: 30px;
 }
 
 .show-card-game {
@@ -104,9 +48,11 @@
   // display: flex;
   align-items: center;
   margin-top: 16px;
-  background-color: white;
-  border: 1px solid #FF7130;
+  background-color: #FFFFFF;
+  border: 1px solid #FFFFFF;
   border-radius: 16px;
+  position: relative;
+  margin: -65px auto;
 
    img {
     height: 100%;
@@ -115,15 +61,15 @@
     border-radius: 16px;
    }
 
-   h2 {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
+   h4 {
+    font-size: 16px;
     color: #FF7130;
+    margin-top: 8px;
+    margin-bottom: 8px;
    }
 
    p {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;
@@ -131,31 +77,155 @@
    }
 
    .show-card-game-infos {
-    padding: 6px;
+    padding: 13px;
     color: gray;
     text-align: center;
    }
 }
 
-.show-infos {
+
+.show-game-title {
+  text-align: center;
+  padding-bottom: 8px;
+}
+.rating-block {
+  display: flex;
+  justify-content: space-around;
+  p {
+    text-align: center;
+    color: black;
+    span {
+      font-weight: bold;
+      color: grey;
+    }
+  }
+}
+
+.vertical-line {
+  border-left: 1px solid lightgrey;
+  display: inline-block;
+  height: 68px;
+  margin: 0px;
+}
+
+.esrb-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+
+.parents-rating {
+  // border-right: 1px solid grey;
+  padding: 3px;
+}
+.game-aware-rating {
+  padding: 3px;
+}
+
+.kid-line {
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+    // p {
+    // display: flex;
+    // justify-content: space-between;
+    // padding: 0 16px;
+    // }
+}
+
+.redbg {
+  background-color: rgb(253, 239, 240);
+  color: #ed6a6a;
+  font-weight: normal;
   font-size: 14px;
+  margin: 8px auto;
+}
+.greenbg {
+  background-color: rgb(241, 251, 245);
+  color: #6fcf97;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 8px auto;
+}
+.orangebg {
+  background-color: rgb(254, 245, 237);
+  color: #F29A4B;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 8px auto;
+}
+
+.chevron.right:before {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.rating-category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-infos-game-summary {
+  font-size: 13px;
+  background: #FFFFFF;
 
   p {
     color: gray;
+    font-size: 13px;
+    font-weight: lighter;
+  }
+}
+
+.show-infos {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  background: #F6F6F6;
+  padding: 18px 10px;
+  border-bottom: 1px solid lightgray;
+
+  p {
+    color: gray;
+    font-size: 13px;
+    font-weight: lighter;
   }
 
   summary {
-  font-size: 16px;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: gray;
   }
 
-  h2 {
-    font-size: 16px;
-  }
 
   h3 {
     font-size: 16px;
   }
 }
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.chevron::before {
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  content: '';
+  display: inline-block;
+  height: 8px;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  width: 8px;
+  color: gray;
+}
+
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
 
 #game-img {
   padding-left: 8px;
@@ -164,7 +234,5 @@
 .modal-button {
   border: none;
   background: none;
-  color: lightgrey;
+  color: #FF7130;
 }
-
-

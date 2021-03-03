@@ -20,7 +20,10 @@ class UserReviewsController < ApplicationController
       redirect_to game_path(@game)
     else
       flash[:notice] = 'An error has occured, please try again.'
-      render :new
+      # render :partial => "user_reviews/new", :object => @user_review
+      @user = current_user
+      @rating_category = EsrbRatingCategory.find(@game.esrb_rating_category_id)
+      render "games/show"
     end
   end
 
