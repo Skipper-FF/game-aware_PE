@@ -1,13 +1,14 @@
 <div class="banner">
-  <div class="banner-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com//U4Mpfqrt-_k/1900x900);">
+  <div class="banner-bg">
     <%= image_tag "gameaware.png", class: "gameawarelogo" %>
   </div>
+  <div class="pitch-text"> <p>Is this game safe ?</p></div>
 </div>
 <div class="container">
   <div class="search-homepage">
     <%= simple_form_for :search, url: games_path, method: :get do |f| %>
       <div class="search-form-control form-group rounded">
-        <%= f.input :query, class:"form-control string required", id:"search_query", label: false %>
+        <%= f.input :query, class:"form-control string required", id:"search_query", label: false, placeholder: 'Search a game' %>
         <%= f.submit "Search", class:"btn btn-search" %>
       </div>
     <% end %>

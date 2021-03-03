@@ -99,9 +99,16 @@
   bottom: 65px;
   text-decoration: none;
 }
+.add-kid-button:hover {
+  text-decoration: none;
+}
 
 .fa-ellipsis-v {
   color: lightgray;
+  outline: none;
+  text-decoration: none;
+}
+.fa-ellipsis-v:hover {
   outline: none;
   text-decoration: none;
 }
