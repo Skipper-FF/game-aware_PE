@@ -63,15 +63,14 @@
           <% elsif esrb_age == "N/C" %>
             <%= game_aware_rating = average_p_rating  %>
             <% elsif average_p_rating == 0 %>
-            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = esrb_age %></p>
+            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = esrb_age %> years old</p>
             <% else %>
-              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %></p>
+              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %> years old</p>
             <% end %>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <br>
     <br>
@@ -193,16 +192,17 @@
     <div class="chevron-game">
         <span class="chevron bottom"></span>
     </div>
-    </div>
   </div>
 </div>
+
   <br>
   <br>
-<!-- <div class="container"> -->
-    <%= render "user_reviews/index", user_review: @user_review %>
-  <hr>
+
+<div class="container">
+  <%= render "user_reviews/index", user_review: @user_review %>
+<hr>
   <%= render ("user_reviews/new"), user_review: @user_review %>
-<!-- </div> -->
+</div>
 
 
 
@@ -237,7 +237,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Game-Aware
+        Game-Aware takes both the ESRB rating as well as the parents rating to calculate the Game-Aware age recommendation. If no parents reviews are available for a game, the Game-Aware age recommandation is identical to the ESRB age recommandation.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,5 +1,5 @@
-<div class="container">
-  <p class="button-add">Add a comment</p>
+<div class="container-index">
+<p class="button-add">Add a comment</p>
   <div class="list-options <%= 'expanded' if @user_review.game %>">
     <%= simple_form_for [@game, @user_review] do |f| %>
     <%= f.input :age, collection: 0..18 %>
@@ -10,4 +10,3 @@
   <% end %>
   </div>
 </div>
-

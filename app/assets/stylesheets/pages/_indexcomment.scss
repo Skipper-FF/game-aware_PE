@@ -1,4 +1,8 @@
-h5 {
+.container-index {
+  padding-bottom: 60px;
+}
+
+#index-comment-title {
   color: #FF7130;
   font-weight: lighter;
   font-size: 14px;
@@ -27,6 +31,15 @@ h5 {
   text-align: center;
   padding: 4px;
 }
+
+.fa-trash-alt {
+  color: gray;
+}
+
+.fa-edit {
+  color: gray;
+}
+
 
 .recommended-age-user {
   background-color: rgb(254, 245, 237);
