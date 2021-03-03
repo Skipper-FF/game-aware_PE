@@ -8,7 +8,7 @@
   <div class="search-homepage">
     <%= simple_form_for :search, url: games_path, method: :get do |f| %>
       <div class="search-form-control form-group rounded">
-        <%= f.input :query, class:"form-control string required", id:"search_query", label: false, placeholder: 'find game' %>
+        <%= f.input :query, class:"form-control string required", id:"search_query", label: false, placeholder: 'Find a game...' %>
         <%= f.submit "Search", class:"btn btn-search" %>
       </div>
     <% end %>
@@ -18,7 +18,7 @@
 <div class="container">
   <h1></h1>
   <div class="index-text">
-  <p><em>Search results</em></p>
+  <p><em>Your results</em></p>
   </div>
   <% @games.each do |game| %>
     <%= link_to game_path(game), class: "index-links" do %>
