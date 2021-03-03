@@ -25,7 +25,7 @@
             <% elsif @rating_category.name == "Everyone"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 3 %> years old</p>
             <% elsif @rating_category.name == "Rating Pending"%>
-            <p> <span>ESRB</span> </p> <p> <%= esrb_age = "N/C" %> years old</p>
+            <p> <span>ESRB</span> </p> <p> <%= esrb_age = "N/C" %></p>
             <% elsif @rating_category.name == "Everyone 10+"%>
             <p> <span>ESRB</span> </p> <p> <%= esrb_age = 10 %> years old</p>
             <% elsif @rating_category.name == "Adults Only 18+"%>
@@ -50,7 +50,8 @@
 
           <% else %>
             <% average_p_rating = 0 %>
-            <p> No parents reviews </p>
+            <p><span>Parents</span> </p>
+            <p> N/C </p>
           <% end %>
         </div>
         <hr class="vertical-line">
@@ -60,18 +61,19 @@
           </button>
           <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
             <% game_aware_rating = "N/C" %>
+            <p><span>Game-Aware</span> </p>
+            <p> N/C </p>
           <% elsif esrb_age == "N/C" %>
             <%= game_aware_rating = average_p_rating  %>
             <% elsif average_p_rating == 0 %>
-            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = esrb_age %></p>
+            <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = esrb_age %> years old</p>
             <% else %>
-              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %></p>
+              <p><span>Game-Aware</span> </p> <p><%= game_aware_rating = ((average_p_rating + esrb_age) / 2).round() %> years old</p>
             <% end %>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <br>
     <br>
@@ -140,7 +142,6 @@
       <div class="details-game">
        <details>
           <summary>Why is it rated <%= esrb_age %>+ by ESRB ?</summary>
-
           <p><%= @game.rating_summary %></p>
         </details>
       </div>
@@ -193,16 +194,16 @@
     <div class="chevron-game">
         <span class="chevron bottom"></span>
     </div>
-    </div>
   </div>
-</div>
+
   <br>
   <br>
-<!-- <div class="container"> -->
-    <%= render "user_reviews/index", user_review: @user_review %>
-  <hr>
+
+<div class="container">
+  <%= render "user_reviews/index", user_review: @user_review %>
+<hr>
   <%= render ("user_reviews/new"), user_review: @user_review %>
-<!-- </div> -->
+</div>
 
 
 
@@ -237,7 +238,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Game-Aware
+        Game-Aware takes both the ESRB rating as well as the parents rating to calculate the Game-Aware age recommendation. If no parents reviews are available for a game, the Game-Aware age recommandation is identical to the ESRB age recommandation.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
