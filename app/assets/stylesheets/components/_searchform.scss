@@ -1,7 +1,10 @@
 .search-form-control {
   position: relative;
 }
-
+#search_query::placeholder {
+  opacity: .5;
+  font-style: italic;
+}
 .search-form-control .btn {
   position: absolute;
   top: 8px;

@@ -3,10 +3,17 @@
   width: 130px;
   position: relative;
   left: 125px;
-  top: 50px;
+  top: 32px;
   filter: brightness(10);
 }
 
+.pitch-text {
+    position: absolute;
+    top: 85px;
+    color: white;
+    left: 169px;
+    font-size: 11px;
+}
 
 .search-homepage {
   margin-top: -20px;

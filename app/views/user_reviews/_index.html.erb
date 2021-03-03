@@ -1,11 +1,10 @@
 <div class="container">
   <h5 id="index-comment-title">Parents comments</h5>
 </div>
-<% @game.user_reviews.each do |review| %>
-<hr>
-<div class="index-form">
-<!-- <li> -->
-  <div class="container">
+<div class="container">
+  <% @game.user_reviews.each do |review| %>
+  <hr>
+  <div class="index-form">
     <p> <strong><%= review.title%></strong></p>
     <p><%= review.description %></p>
     <div class="rating-age-review">
@@ -15,6 +14,7 @@
       <div class="age-rating">
         <p class="recommended-age-user">Recommended age: <%= review.age %> years old</p>
       </div>
+    </div>
   </div>
 </div>
 <div class="container">
