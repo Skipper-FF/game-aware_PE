@@ -2,10 +2,10 @@
 <p class="button-add">Add a comment</p>
   <div class="list-options <%= 'expanded' if @user_review.game %>">
     <%= simple_form_for [@game, @user_review] do |f| %>
-    <%= f.input :age, collection: 0..18, label: "Recommended age" %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :rating, collection: 0..5 %>
+    <%= f.input :age, collection: 0..18, label: "Minimum age fot this game ?" %>
+    <%= f.input :title, label: "Your comment title"%>
+    <%= f.input :description, label: " Your thougts on this game"%>
+    <%= f.input :rating, collection: 0..5, label: "Overall, is this game good ?" %>
     <%= f.submit'Post your comment', class: "btn btn-success" %>
   <% end %>
   </div>
