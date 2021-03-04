@@ -2,7 +2,7 @@ require 'httparty'
 require 'open-uri'
 require 'json'
 
-class IgdbScraperService
+class IgdbScraperService < ApplicationController
   def initialize(query)
     @query = query
     @client_id = '7gxcwa6ccp0u9cnegrpzwxbnczg9lr'
@@ -124,7 +124,7 @@ class IgdbScraperService
     new_game.save!
     # add cover
     if game_cover[0]['url'].nil? || game_cover[0].empty?
-      new_game.cover_url = "https://images.igdb.com/igdb/image/upload/t_cover_big/nocover_qhhlj6.jpg"
+      new_game.cover_url = helpers.asset_url('ga_placeholder_img.png')
     else
       new_game.cover_url = "https:#{game_cover[0]['url']}".sub('thumb', '720p')
     end
