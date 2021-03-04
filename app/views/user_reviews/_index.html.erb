@@ -5,8 +5,9 @@
   <% @game.user_reviews.each do |review| %>
   <hr>
   <div class="index-form">
+    <span id="show-username"><%= @user.username %></span>
     <p> <strong><%= review.title%></strong></p>
-    <p><%= review.description %></p>
+    <p id="review-paragraph"><%= review.description %></p>
     <div class="rating-age-review">
       <div class="rating-review">
         <p class="rating-user"><%= review.rating %>/5 <i class="fas fa-star"> </i></p>
