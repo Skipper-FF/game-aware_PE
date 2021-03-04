@@ -92,6 +92,7 @@
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
         <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
+        <%= link_to dashboard_path do %>
           <div class="kid-line d-flex justify-content-between
             <% if game_aware_rating == "N/C" %>
               <%= 'orangebg' %>
@@ -124,11 +125,10 @@
             </div>
 
             <div class="chevron-kids">
-              <%= link_to dashboard_path do %>
               <span class="chevron right" ></span>
-              <% end %>
             </div>
           </div>
+        <% end %>
         <% end %>
       <% else %>
         <%= link_to "+ Add a kid", new_kid_path, class: "add-kid-show" %>
@@ -144,6 +144,23 @@
     <p><%= @game.description %></p>
   </div>
   <div class="esrb-infos">
+    <div class="show-infos">
+      <div class="details-game">
+        <details>
+          <summary>What could be offensive in this game ? </summary>
+          <ul>
+            <br>
+            <% @game.esrb_content_descriptors.each do |descriptor| %>
+              <h6 id="offensive-list"><%= descriptor.name %></h6>
+            <% end %>
+          </ul>
+        </details>
+      </div>
+      <div class="chevron-game">
+        <span class="chevron bottom"></span>
+      </div>
+    </div>
+
     <div class="show-infos">
       <div class="details-game">
        <details>
@@ -171,22 +188,6 @@
       </div>
     </div>
 
-    <div class="show-infos">
-      <div class="details-game">
-        <details>
-          <summary>What could be offensive in this game ? </summary>
-          <ul>
-            <br>
-            <% @game.esrb_content_descriptors.each do |descriptor| %>
-              <li id="offensive-list"><%= descriptor.name %></li>
-            <% end %>
-          </ul>
-        </details>
-      </div>
-      <div class="chevron-game">
-        <span class="chevron bottom"></span>
-      </div>
-    </div>
     <div class="show-infos">
       <div class="details-game">
         <details>
