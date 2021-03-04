@@ -2,7 +2,9 @@
   <div class="banner-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= asset_path('index_banner.jpg') %> );">
     <%= image_tag "gameaware.png", class: "gameawarelogo" %>
   </div>
-  <div class="pitch-text"> <p>Is this game safe ?</p></div>
+  <div class="pitch-text">
+    <p>Is this game safe ?</p>
+  </div>
 </div>
 <div class="container">
   <div class="search-homepage">
@@ -18,7 +20,7 @@
 <div class="container">
   <h1></h1>
   <div class="index-text">
-  <p><em>Your results</em></p>
+    <p><em><%= page_entries_info @games, entry_name: 'games' %></em></p>
   </div>
   <% @games.each do |game| %>
     <%= link_to game_path(game), class: "index-links" do %>
@@ -29,10 +31,11 @@
           <%= image_tag game.cover_url %>
         <% end %>
         <div class="index-card-game-infos">
-         <h2> <%= game.name %> </h2>
-         <p> <%= game.description.truncate_words(14) %></p>
+          <h2> <%= game.name.truncate_words(8) %> </h2>
+          <p> <%= game.description.truncate_words(14) %></p>
         </div>
       </div>
     <% end %>
   <% end %>
+  <%= paginate @games%>
 </div>

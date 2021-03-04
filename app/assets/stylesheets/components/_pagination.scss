@@ -1,0 +1,13 @@
+.pagination {
+  justify-content: center;
+  padding: 16px 0px;
+  span {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 4px 30px rgba(0,0,0,0.07);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
