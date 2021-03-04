@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .gameawarelogo {
-  width: 130px;
+  width: 150px;
   position: relative;
   left: 125px;
   top: 32px;
@@ -9,10 +9,13 @@
 
 .pitch-text {
     position: absolute;
-    top: 85px;
+    top: 90px;
     color: white;
-    left: 169px;
+    left: 126px;
     font-size: 11px;
+    p {
+      font-size: 18px;
+    }
 }
 
 .search-homepage {
