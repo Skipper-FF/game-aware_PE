@@ -55,9 +55,8 @@
             <p> N/C </p>
           <% end %>
         </div>
-        <hr class="vertical-line">
         <div class="game-aware-rating">
-          <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
+          <button type="button" class="info-game-aware" data-toggle="modal" data-target="#GAModal">
            <i class="fas fa-info-circle"></i>
           </button>
           <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>
