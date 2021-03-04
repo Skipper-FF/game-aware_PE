@@ -7,9 +7,9 @@ class GamesController < ApplicationController
   def index
     if params.dig(:search,:query) && params[:search][:query] != ""
       IgdbScraperService.new(params[:search][:query]).call
-      @games = policy_scope(Game).search_by_name(params[:search][:query])
+      @games = policy_scope(Game).search_by_name(params[:search][:query]).order(:name).page(params[:page]).per(10)
     else
-      @games = policy_scope(Game)
+      @games = policy_scope(Game).order(:name).page(params[:page]).per(10)
     end
   end
 
