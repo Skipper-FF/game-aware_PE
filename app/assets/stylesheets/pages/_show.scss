@@ -246,4 +246,11 @@ details > summary::-webkit-details-marker {
   border: none;
   background: none;
   color: #FF7130;
+  outline: none;
+  text-decoration: none;
+}
+
+.modal-button:focus {
+  outline: none;
+  text-decoration: none;
 }
