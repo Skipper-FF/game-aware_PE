@@ -160,6 +160,11 @@
   padding: 14px;
   margin-bottom: 5px;
   margin-top: 5px;
+
+  .kid-line:focus{
+    text-decoration: none;
+    outline: none;
+  }
     // p {
     // display: flex;
     // justify-content: space-between;
@@ -209,7 +214,7 @@
 
   p {
     color: dimgray;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: lighter;
     text-align: justify;
     line-height: 26px;
@@ -266,10 +271,16 @@ details > summary::-webkit-details-marker {
 }
 
 #offensive-list {
-  color: dimgray;
+  border-radius: 50px;
+  text-align: center;
+  color: white;
+  margin: 10px 0px;
+  background: gray;
 }
 #game-img {
-  padding-left: 8px;
+  padding: 0px 16px;
+  height: 100px;
+  width: 100%;
 }
 
 .add-kid-show {

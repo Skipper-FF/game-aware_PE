@@ -123,9 +123,9 @@
             </div>
           <% end %>
         <% end %>
+      <% end %>
       <% else %>
         <%= link_to "+ Add a kid", new_kid_path, class: "add-kid-show" %>
-      <% end %>
     <% end %>
   </div>
 
@@ -137,6 +137,23 @@
     <p><%= @game.description %></p>
   </div>
   <div class="esrb-infos">
+    <div class="show-infos">
+      <div class="details-game">
+        <details>
+          <summary>What could be offensive in this game ? </summary>
+          <ul>
+            <br>
+            <% @game.esrb_content_descriptors.each do |descriptor| %>
+              <h6 id="offensive-list"><%= descriptor.name %></h6>
+            <% end %>
+          </ul>
+        </details>
+      </div>
+      <div class="chevron-game">
+        <span class="chevron bottom"></span>
+      </div>
+    </div>
+
     <div class="show-infos">
       <div class="details-game">
        <details>
@@ -164,22 +181,6 @@
       </div>
     </div>
 
-    <div class="show-infos">
-      <div class="details-game">
-        <details>
-          <summary>What could be offensive in this game ? </summary>
-          <ul>
-            <br>
-            <% @game.esrb_content_descriptors.each do |descriptor| %>
-              <li id="offensive-list"><%= descriptor.name %></li>
-            <% end %>
-          </ul>
-        </details>
-      </div>
-      <div class="chevron-game">
-        <span class="chevron bottom"></span>
-      </div>
-    </div>
     <div class="show-infos">
       <div class="details-game">
         <details>
