@@ -91,44 +91,37 @@
     <% if @user %>
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
-        <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
-          <div class="kid-line d-flex justify-content-between
-            <% if game_aware_rating == "N/C" %>
-              <%= 'orangebg' %>
-            <% else %>
-              <%if (kid_age) < (game_aware_rating - 1) %>
-                  <%= 'redbg' %>
-              <% elsif kid_age >= game_aware_rating %>  %>
-                  <%= 'greenbg' %>
-              <% else %>
-                  <%= 'orangebg' %>
-              <% end %>
+          <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
+          <% color = 'orangebg' %>
+          <% if game_aware_rating != "N/C" %>
+            <% if (kid_age) < (game_aware_rating - 1) %>
+              <% color = 'redbg' %>
+            <% elsif kid_age >= game_aware_rating %>
+              <% color = 'greenbg' %>
             <% end %>
-            ">
-            <div class="kid-ratings">
-              <span class="kid-reco"> <% if game_aware_rating == "N/C" %>
-              😐
-                <% else %>
-                  <% if kid_age >= game_aware_rating %>
-                    <i class="far fa-thumbs-up"></i>
-                  <% elsif (kid_age) < (game_aware_rating - 1)%>
-                    <i class="far fa-thumbs-down"></i>
+          <% end %>
+          <%= link_to dashboard_path do %>
+            <div class="kid-line d-flex justify-content-between <%= color %>">
+              <div class="kid-ratings">
+                <span class="kid-reco">
+                  <% if game_aware_rating == "N/C" %>
+                    😐
                   <% else %>
-                    <i class="fas fa-exclamation-circle"></i>
+                    <% if kid_age >= game_aware_rating %>
+                      <i class="far fa-thumbs-up"></i>
+                    <% elsif (kid_age) < (game_aware_rating - 1)%>
+                      <i class="far fa-thumbs-down"></i>
+                    <% else %>
+                      <i class="fas fa-exclamation-circle"></i>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </span>
-              <span class="kid-name"><%= kid.name %>, </span>
-              <span class="kid-age"> <%= kid_age %> years old
-             </span>
+                </span>
+                <span class="kid-name"><%= kid.name %>, </span>
+                <span class="kid-age"> <%= kid_age %> years old</span>
+              </div>
+              <div class="chevron-kids"><span class="chevron right" ></span></div>
             </div>
-
-            <div class="chevron-kids">
-              <%= link_to dashboard_path do %>
-              <span class="chevron right" ></span>
-              <% end %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% else %>
         <%= link_to "+ Add a kid", new_kid_path, class: "add-kid-show" %>
