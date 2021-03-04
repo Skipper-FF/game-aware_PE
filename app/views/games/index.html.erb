@@ -10,7 +10,7 @@
   <div class="search-homepage">
     <%= simple_form_for :search, url: games_path, method: :get do |f| %>
       <div class="search-form-control form-group rounded">
-        <%= f.input :query, class:"form-control string required", id:"search_query", label: false, placeholder: 'Find a game...' %>
+        <%= f.input :query, class:"form-control string required", id:"search_query", label: false, placeholder: 'Find a game...', input_html: { value: params.dig(:search,:query) ? params[:search][:query] : '' } %>
         <%= f.submit "Search", class:"btn btn-search" %>
       </div>
     <% end %>
