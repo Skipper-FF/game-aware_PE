@@ -121,11 +121,7 @@ class IgdbScraperService < ApplicationController
       description: description,
       alternative_names: alt_names
     )
-    new_game.save!
-    # add cover
-    if game_cover[0]['url'].nil? || game_cover[0].empty?
-      new_game.cover_url = helpers.asset_url('ga_placeholder_img.png')
-    else
+    unless game_cover[0]['url'].nil? || game_cover[0].empty?
       new_game.cover_url = "https:#{game_cover[0]['url']}".sub('thumb', '720p')
     end
     new_game.save!

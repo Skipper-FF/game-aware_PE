@@ -17,12 +17,9 @@
 
    img {
     height: 100%;
-    width: 90px;
-    min-height: -webkit-fill-available;
-    max-height: 90px;
     min-width: 90px;
     max-width: 90px;
-    object-fit: cover;
+    object-fit: fill;
   }
 
    h2 {

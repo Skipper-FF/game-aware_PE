@@ -26,7 +26,7 @@
     <%= link_to game_path(game), class: "index-links" do %>
       <div class="index-card-game">
         <% if game.cover_url.nil? %>
-          <%= image_tag("https://images.igdb.com/igdb/image/upload/t_cover_big/nocover_qhhlj6.jpg") %>
+          <%= image_tag 'ga_placeholder_img.png' %>
         <% else %>
           <%= image_tag game.cover_url %>
         <% end %>
