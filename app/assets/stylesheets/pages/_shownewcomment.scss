@@ -39,7 +39,7 @@
   border-radius: 0px 0px 5px 5px;
 }
 
-.btn-success {
+.btn-success-show {
   color: white;
   background-color: #FF7130;
   border-color: #FF7130;
@@ -52,20 +52,20 @@ element.style {
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
-.btn-success:focus {
+.btn-success-show:focus {
     color: #FF7130;
     background-color: #FFF1E8;
     border-color: #FFF1E8;
     outline: none;
 }
-.btn-success:focus, .btn-success.focus {
+.btn-success-show:focus, .btn-success.focus {
   color: #FF7130;
   background-color: #FFF1E8;
   border-color: #FFF1E8;
   outline: none;
 }
 
-.btn-success:hover {
+.btn-success-show:hover {
   color: #FF7130;
   background-color: #FFF1E8;
   border-color: #FFF1E8;
