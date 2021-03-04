@@ -88,6 +88,7 @@
       <% if @user.kids.count > 0 %>
         <% @user.kids.each do |kid| %>
         <% kid_age = ((Date.today - kid.birthdate).to_i/365).round %>
+        <%= link_to dashboard_path do %>
           <div class="kid-line d-flex justify-content-between
             <% if game_aware_rating == "N/C" %>
               <%= 'orangebg' %>
@@ -120,11 +121,10 @@
             </div>
 
             <div class="chevron-kids">
-              <%= link_to dashboard_path do %>
               <span class="chevron right" ></span>
-              <% end %>
             </div>
           </div>
+        <% end %>
         <% end %>
       <% else %>
         <%= link_to "+ Add a kid", new_kid_path, class: "add-kid-show" %>

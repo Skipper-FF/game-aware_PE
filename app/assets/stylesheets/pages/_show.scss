@@ -160,6 +160,11 @@
   padding: 14px;
   margin-bottom: 5px;
   margin-top: 5px;
+
+  .kid-line:focus{
+    text-decoration: none;
+    outline: none;
+  }
     // p {
     // display: flex;
     // justify-content: space-between;
@@ -297,4 +302,11 @@ details > summary::-webkit-details-marker {
 .modal-button:focus {
   outline: none;
   text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  a:hover {
+    text-decoration: none;
+  }
 }
