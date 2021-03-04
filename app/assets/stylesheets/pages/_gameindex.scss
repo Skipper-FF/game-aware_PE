@@ -17,15 +17,19 @@
 
    img {
     height: 100%;
-    width: 100px;
+    width: 90px;
+    min-height: -webkit-fill-available;
+    max-height: 90px;
+    min-width: 90px;
+    max-width: 90px;
     object-fit: cover;
-   }
+  }
 
    h2 {
     font-size: 14px;
     font-weight: bold;
     margin: 0;
-    color:#FF7130
+    color:#FF7130;
    }
 
    p {

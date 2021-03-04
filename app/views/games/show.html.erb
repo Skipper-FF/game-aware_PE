@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@game.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @game.description %>
+<% content_for :meta_image, image_path(@game.cover_url) %>
+
 <div class="show-banner">
   <div class="show-banner-img" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url( <%= image_path @game.cover_url %>);">
   </div>
@@ -5,7 +9,7 @@
 <div class="container">
   <h1 class="h1-show"><%= @game.name %></h1>
   <div class="show-header">
-    <%= link_to games_path do %>
+    <%= link_to :back do %>
       <i class="fas fa-arrow-left" id="back-arrow"></i>
     <% end %>
   </div>
@@ -55,9 +59,8 @@
             <p> N/C </p>
           <% end %>
         </div>
-        <hr class="vertical-line">
         <div class="game-aware-rating">
-          <button type="button" class="modal-button" data-toggle="modal" data-target="#GAModal">
+          <button type="button" class="info-game-aware" data-toggle="modal" data-target="#GAModal">
            <i class="fas fa-info-circle"></i>
           </button>
           <% if esrb_age == "N/C" && @game.user_reviews.count == 0 %>

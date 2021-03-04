@@ -98,9 +98,24 @@
   width: 92%;
   bottom: 65px;
   text-decoration: none;
+  outline: none;
 }
+
 .add-kid-button:hover {
   text-decoration: none;
+  outline: none;
+
+}
+
+.add-kid-button:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+a.add-kid-button:hover {
+    outline: none;
+    text-decoration: none;
+    color: white;
 }
 
 .fa-ellipsis-v {
@@ -113,6 +128,17 @@
   text-decoration: none;
 }
 
+.fa-ellipsis-v:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.dropdown.dropleft {
+  a {
+    outline: none;
+    text-decoration: none;
+  }
+}
 .name-and-dropdown {
   display: flex;
   justify-content: space-between;
