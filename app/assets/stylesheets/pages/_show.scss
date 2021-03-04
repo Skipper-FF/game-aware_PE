@@ -62,14 +62,14 @@
    }
 
    h4 {
-    font-size: 16px;
+    font-size: 18px;
     color: #FF7130;
     margin-top: 8px;
     margin-bottom: 8px;
    }
 
    p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;
@@ -77,8 +77,8 @@
    }
 
    .show-card-game-infos {
-    padding: 13px;
-    color: gray;
+    padding: 3px;
+    color: dimgray;
     text-align: center;
    }
 }
@@ -91,14 +91,6 @@
 .rating-block {
   display: flex;
   justify-content: space-around;
-  p {
-    text-align: center;
-    color: black;
-    span {
-      font-weight: bold;
-      color: grey;
-    }
-  }
 }
 
 .vertical-line {
@@ -111,14 +103,56 @@
 .esrb-rating {
   // border-right: 1px solid grey;
   padding: 3px;
+    p {
+    text-align: center;
+    color: black;
+    span {
+      font-weight: bold;
+      color: dimgray;
+      font-size: 14px;
+    }
+  }
 }
 
 .parents-rating {
   // border-right: 1px solid grey;
   padding: 3px;
+    p {
+    text-align: center;
+    color: black;
+    span {
+      font-weight: bold;
+      color: dimgray;
+      font-size: 14px;
+    }
+  }
 }
 .game-aware-rating {
-  padding: 3px;
+  transform: translate(13px, 4px);
+  background-color: #FF7130;
+  border-radius: 16px 0;
+  width: 130px;
+  height: 80px;
+      p {
+    text-align: center;
+    color: white;
+    opacity: 1;
+    span {
+    font-weight: bolder;
+    color: white;
+    font-size: 14px;
+    }
+  }
+}
+
+.info-game-aware {
+  border: none;
+  background: none;
+  color: white;
+}
+
+#game-aware-bloc {
+  color: white;
 }
 
 .kid-line {
@@ -137,27 +171,31 @@
   background-color: rgb(253, 239, 240);
   color: #ed6a6a;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 18px;
   margin: 8px auto;
 }
 .greenbg {
   background-color: rgb(241, 251, 245);
   color: #6fcf97;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 18px;
   margin: 8px auto;
 }
 .orangebg {
   background-color: rgb(254, 245, 237);
   color: #F29A4B;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 18px;
   margin: 8px auto;
 }
 
 .chevron.right:before {
   left: 0;
   transform: rotate(45deg);
+}
+
+.chevron.right::after {
+  color: white;
 }
 
 .rating-category {
@@ -170,9 +208,11 @@
   background: #FFFFFF;
 
   p {
-    color: gray;
-    font-size: 13px;
+    color: dimgray;
+    font-size: 16px;
     font-weight: lighter;
+    text-align: justify;
+    line-height: 26px;
   }
 }
 
@@ -185,17 +225,17 @@
   border-bottom: 1px solid lightgray;
 
   p {
-    color: gray;
-    font-size: 13px;
+    color: dimgray;
+    font-size: 16px;
     font-weight: lighter;
+    text-align: justify;
   }
 
   summary {
-  font-size: 13px;
-  font-weight: normal;
-  letter-spacing: 1px;
-  color: gray;
-  outline: none;
+    font-size: 16px;
+    font-weight: normal;
+    color: dimgray;
+    outline: none;
   }
 
 
@@ -209,17 +249,15 @@ details > summary::-webkit-details-marker {
 }
 
 .chevron::before {
-  border-style: solid;
-  border-width: 0.25em 0.25em 0 0;
-  content: '';
-  display: inline-block;
-  height: 8px;
-  left: 0.15em;
-  position: relative;
-  top: 0.15em;
-  transform: rotate(-45deg);
-  width: 8px;
-  color: gray;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 14px;
+    left: 0.15em;
+    position: relative;
+    width: 14px;
+    color: dimgray;
 }
 
 .chevron.bottom:before {
@@ -228,7 +266,7 @@ details > summary::-webkit-details-marker {
 }
 
 #offensive-list {
-  color: gray;
+  color: dimgray;
 }
 #game-img {
   padding-left: 8px;
