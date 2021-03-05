@@ -1,9 +1,10 @@
-require 'faker'
 require 'json'
-require "open-uri"
 
-# sets Faker with French values
-Faker::Config.locale = 'fr'
+require_relative '../app/services/igdb_scraper_service'
+
+esrb_filepath = 'db/seeds/esrb.json'
+genres_filepath = 'db/seeds/genres.json'
+games_filepath = 'db/seeds/games.json'
 
 puts 'Cleaning database...'
 UserReview.destroy_all
@@ -15,13 +16,11 @@ EsrbContentDescriptor.destroy_all
 EsrbInteractiveElement.destroy_all
 GameGenre.destroy_all
 Genre.destroy_all
-Game.destroy_all
 EsrbRatingCategory.destroy_all
 
 puts 'Database cleaned !'
 puts''
 
-esrb_filepath = 'db/seeds/esrb.json'
 esrb_file  = File.read(File.join(Rails.root,esrb_filepath))
 esrb = JSON.parse(esrb_file)
 
@@ -57,7 +56,6 @@ esrb['interactive_elements'].each do | interactive_element |
 end
 puts 'Interactive elements added !'
 
-genres_filepath = 'db/seeds/genres.json'
 genres_file  = File.read(File.join(Rails.root,genres_filepath))
 genres = JSON.parse(genres_file)
 
@@ -71,21 +69,9 @@ genres['genres'].each do | genre |
 end
 puts 'Genre added !'
 
-games_filepath = 'db/seeds/games.json'
 games_file = File.read(File.join(Rails.root,games_filepath))
 games = JSON.parse(games_file)
 
-puts 'Adding users...'
-
-username = "Toto"
-email = "toto@toto.com"
-user = User.new(
-  username: username,
-  email: email,
-  password: email
-  )
-user.save!
-puts "#{username} subscribed to Game-Aware"
-
+games['games'].each { |game| IgdbScraperService.new(game).call }
 
 puts 'Seeding successful'
