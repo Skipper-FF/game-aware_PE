@@ -114,6 +114,7 @@ class IgdbScraperService < ApplicationController
   end
 
   def store_to_db(igdb_game, game_cover, alt_names)
+    puts "Adding #{igdb_game['name']}..."
     description = fill_description(igdb_game['summary'])
     new_game = Game.new(
       name: igdb_game['name'],
@@ -125,5 +126,6 @@ class IgdbScraperService < ApplicationController
       new_game.cover_url = "https:#{game_cover[0]['url']}".sub('thumb', '720p')
     end
     new_game.save!
+    puts "#{igdb_game['name']} added !"
   end
 end
