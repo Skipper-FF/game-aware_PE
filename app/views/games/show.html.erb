@@ -68,7 +68,8 @@
             <p><span>Game-Aware</span> </p>
             <p> N/C </p>
           <% elsif esrb_age == "N/C" %>
-            <%= game_aware_rating = average_p_rating  %>
+            <p><span>Game-Aware</span> </p>
+            <p> <%= game_aware_rating = average_p_rating %> years old </p>
           <% elsif average_p_rating == 0 %>
             <p><span>Game-Aware</span> </p>
             <p><%= game_aware_rating = esrb_age %> years old</p>
